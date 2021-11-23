@@ -1,1 +1,10 @@
-/* inserez ici le css */
+.banner_container {
+    position: relative;
+    padding-bottom: 200px;
+}
+
+.banner_pic {
+    position: absolute;
+    clip: rect(0, 1300px, 200px, 0);
+}
+

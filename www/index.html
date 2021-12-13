@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="./css/bootstrap.css">
   <!-- jQuery library -->
   <script src="./js/jquery.min.js"></script>
-
+  <!-- montserrat -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
   <!-- Popper JS -->
   <script src="./js/popper.min.js"></script>
 
@@ -22,20 +23,20 @@
   
 <!-- Menu de base -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">G-Finder</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Find <span class="sr-only"></span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Account</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="#">Search</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -145,32 +146,48 @@
                         <h3>Année :</h3>
                         <div class="row">
                             <div class="col">
-                                <input type="radio" id="inde_nc" name="inde" value="inde_nc" checked>
-                                <label for="inde_nc">N/A</label>
+                                <input type="radio" id="annee_nc" name="annee" value="annee_nc" checked>
+                                <label for="annee_nc">N/A</label>
                             </div>
                             <div class="col">
-                                <input type="radio" id="inde_yes" name="inde" value="inde_yes">
-                                <label for="inde_yes">+ de 20 ans</label>
+                                <input type="radio" id="annee_old20" name="annee" value="annee_old20">
+                                <label for="annee_old20">+ de 20 ans</label>
                             </div>
                             <div class="col">
-                                <input type="radio" id="inde_yes" name="inde" value="inde_yes">
-                                <label for="inde_yes">+ de 10 ans</label>
+                                <input type="radio" id="annee_old10" name="annee" value="annee_old10">
+                                <label for="annee_old10">+ de 10 ans</label>
                             </div>
                             <div class="col">
-                                <input type="radio" id="inde_no" name="inde" value="inde_no">
-                                <label for="inde_no">+ d'5 an</label>
+                                <input type="radio" id="annee_old5" name="annee" value="annee_old5">
+                                <label for="annee_old5">+ d'5 an</label>
                             </div>
                             <div class="col">
-                                <input type="radio" id="inde_yes" name="inde" value="inde_yes">
-                                <label for="inde_yes">- de 5 ans</label>
+                                <input type="radio" id="annee_old_lesser5" name="annee" value="annee_old_lesser5">
+                                <label for="annee_old_lesser5">- de 5 ans</label>
                             </div>
                             <div class="col">
-                                <input type="radio" id="inde_no" name="inde" value="inde_no">
-                                <label for="inde_no">- d'1 an</label>
+                                <input type="radio" id="annee_old_lesser1" name="annee" value="annee_old_lesser1">
+                                <label for="annee_old_lesser1">- d'1 an</label>
                             </div>                        
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12 spaced box-form">
+                        <h3>VR :</h3>
+                        <div class="row">
+                            <div class="col">
+                                <input type="radio" id="vr_nc" name="vr" value="vr_nc" checked>
+                                <label for="vr_nc">N/A</label>
+                            </div>
+
+                            <div class="col">
+                                <input type="radio" id="vr_yes" name="vr" value="vr_yes">
+                                <label for="vr_yes">Oui</label>
+                            </div>
+                            <div class="col">
+                                <input type="radio" id="vr_no" name="vr" value="vr_no">
+                                <label for="vr_no">Non</label>
+                            </div>                        
+                        </div>
                     </div>
                 </div>
             </div>

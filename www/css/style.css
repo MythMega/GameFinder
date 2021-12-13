@@ -22,6 +22,10 @@ footer {
     padding-top: 10px;
 }
 
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
 
 .text-centered {
     text-align: center;
@@ -41,6 +45,7 @@ footer {
     border-radius: 3px;
     border-width: 3px;
     background-color: rgba(255, 255, 255, 0.658);
+    height: 240px;
 }
 
 .box-form h3 {

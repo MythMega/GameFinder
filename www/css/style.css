@@ -13,12 +13,13 @@
 }
 
 .full_page_banner_container { 
-    height: 80vh;
+    height: auto;
 }
 
 footer {
     background-color: rgb(20, 20, 20);
-    height: 100px;
+    height: auto;
+    margin-top: 50px;
     padding-top: 10px;
 }
 
@@ -57,7 +58,7 @@ footer {
 }
 
 .spacer-20 {
-    margin-bottom: 20px;
+    height: 20px;
 }
 
 .tag-choice input {
@@ -68,4 +69,5 @@ footer {
 #launchSearch {
     width: 100%;
     height: 2em;
+    margin-bottom: 25px;
 }

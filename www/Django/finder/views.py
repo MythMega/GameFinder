@@ -10,11 +10,32 @@ def index(request):
     data = {'last_submission_list': last_submission_list}
     return HttpResponse(template.render(data, request))
 
-def run(request):
-    return HttpResponse("C LA PAGE RUN LOL")
-
 def gameList(request):
-    return HttpResponse("C LA GAMELIST LOL")
+    template = loader.get_template('finder/gamelist.html')
+    data = {}
+    return HttpResponse(template.render(data, request))
 
 def pendingSubmissions(request):
-    return HttpResponse("Page de liste de submission")
+    template = loader.get_template('finder/pendingSubmission.html')
+    data = {}
+    return HttpResponse(template.render(data, request))
+
+def login(request):
+    template = loader.get_template('finder/login.html')
+    data = {}
+    return HttpResponse(template.render(data, request))
+
+def register(request):
+    template = loader.get_template('finder/register.html')
+    data = {}
+    return HttpResponse(template.render(data, request))
+
+def logout(request):
+    template = loader.get_template('finder/logout.html')
+    data = {}
+    return HttpResponse(template.render(data, request))
+
+def profile(request):
+    template = loader.get_template('finder/profile.html')
+    data = {}
+    return HttpResponse(template.render(data, request))

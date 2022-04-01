@@ -12,26 +12,28 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Game-Finder</a>
+              <a class="navbar-brand" href="#">GF</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'finder:index'%}">FINDER</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
+                      See all...
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Games</a></li>
                       <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Pending Submissions</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Platform</a></li>
                       <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                   </li>
@@ -44,10 +46,10 @@
                   <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <section style="margin-left: 50px;">
-                    <button class="btn btn-outline-primary">Login</button>
-                    <button class="btn btn-outline-primary">Register</button>
-                    <button class="btn btn-outline-primary">Profile</button>
-                    <button class="btn btn-outline-primary">Logout</button>
+                    <a href="{% url 'finder:login'%}"><button class="btn btn-outline-primary">Login</button></a>
+                    <a href="{% url 'finder:register'%}"><button class="btn btn-outline-primary">Register</button></a>
+                    <a href="{% url 'finder:profile'%}"><button class="btn btn-outline-primary">Profile</button></a>
+                    <a href="{% url 'finder:logout'%}"><button class="btn btn-outline-primary">Logout</button></a>
                 </section>
               </div>
             </div>

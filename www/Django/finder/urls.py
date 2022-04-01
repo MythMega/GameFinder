@@ -1,7 +1,12 @@
 from django.urls import path
 from . import views
 
+app_name = "finder"
+
 urlpatterns = [
     path('', views.index, name='index'),
-    path('run', views.run, name='run'),
+    path('login/', views.login, name='login'),
+    path('register/', views.register, name='register'),
+    path('logout/', views.logout, name='logout'),
+    path('profile/', views.profile, name='profile'),
 ]

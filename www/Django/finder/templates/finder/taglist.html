@@ -5,5 +5,7 @@ Tags
 {% endblock %}
 
 {% block contenu %}
-<!-- html content code -->
+                {% for element in items %}
+                    <br><br><p>{{element}}</p>
+                {% endfor %}
 {% endblock %}

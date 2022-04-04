@@ -24,9 +24,15 @@ class Licence(models.Model):
     name = models.CharField(max_length=64)
     picture = models.ImageField(upload_to='img/licence/',null=True, blank=True)
 
+    def __str__(self) -> str:
+        return self.name
+
 class Tag(models.Model):
     libelle = models.CharField(max_length=64)
     picture = models.ImageField(upload_to='img/tag/',null=True, blank=True)
+
+    def __str__(self) -> str:
+        return self.name
 
 class Platform(models.Model):
     name = models.CharField(max_length=64)
@@ -34,16 +40,25 @@ class Platform(models.Model):
     release_date = models.DateField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
 
+    def __str__(self) -> str:
+        return self.name
+
 class Editor(models.Model):
     name = models.CharField(max_length=64)
     release_date = models.DateField(null=True, blank=True)
     still_active = models.BooleanField(default=True)    
+
+    def __str__(self) -> str:
+        return self.name
 
 class Developer(models.Model):
     name = models.CharField(max_length=64)
     release_date = models.DateField(null=True, blank=True)
     isActive = models.BooleanField(default=True)
     isIndependant = models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        return self.name
 
 class Game(models.Model):
     name = models.CharField(max_length=64)
@@ -61,8 +76,18 @@ class Game(models.Model):
     tag = models.ManyToManyField(Tag, blank=True, null=True)
     licence = models.ManyToManyField(Licence, blank=True, null=True)
 
+    def __str__(self) -> str:
+        return f"[{self.release_date}] {self.name}" 
+
 class Submission(models.Model):
     date_creation = models.DateField(default=d.today())
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     validated = models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        if self.validated:
+            return f"[Verified] {self.user} {self.game} {self.date_creation}"
+        else:
+            return f"[Unverified] {self.user} {self.game} {self.date_creation}"
+        

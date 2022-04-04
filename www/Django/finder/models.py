@@ -32,7 +32,7 @@ class Tag(models.Model):
     picture = models.ImageField(upload_to='img/tag/',null=True, blank=True)
 
     def __str__(self) -> str:
-        return self.name
+        return self.libelle
 
 class Platform(models.Model):
     name = models.CharField(max_length=64)

@@ -15,7 +15,7 @@ class User(models.Model):
     account_creation = models.DateField(default=d.today())
     permission_level = models.PositiveSmallIntegerField()
     picture_profile = models.ImageField(upload_to='finder/static/finder/img/user/profile_pic',null=True, blank=True)
-    picture_profile = models.ImageField(upload_to='finder/static/finder/img/user/banner_pic',null=True, blank=True)
+    picture_banner = models.ImageField(upload_to='finder/static/finder/img/user/banner_pic',null=True, blank=True)
 
     def __str__(self) -> str:
         return f'{self.username} ({self.mail}) [{self.level}]'
@@ -65,7 +65,8 @@ class Platform(models.Model):
 class Editor(models.Model):
     name = models.CharField(max_length=64)
     release_date = models.DateField(null=True, blank=True)
-    still_active = models.BooleanField(default=True)    
+    still_active = models.BooleanField(default=True)
+    picture = models.ImageField(upload_to='finder/static/finder/img/platform/',null=True, blank=True)    
 
     def __str__(self) -> str:
         return self.name
@@ -78,6 +79,7 @@ class Developer(models.Model):
     release_date = models.DateField(null=True, blank=True)
     isActive = models.BooleanField(default=True)
     isIndependant = models.BooleanField(default=False)
+    picture = models.ImageField(upload_to='finder/static/finder/img/platform/',null=True, blank=True)
 
     def dataLine(self) -> str:
         base = ""

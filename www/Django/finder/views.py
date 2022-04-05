@@ -30,7 +30,11 @@ def gameDetail(request, game_id):
 
 def editorList(request):
     template = loader.get_template('finder/editorlist.html')
-    data = {}
+    items = Editor.objects.all()
+    itemList = {}
+    for item in items:
+        itemList[item] = str(item.picture)[14:]
+    data = {'itemList': itemList}
     return HttpResponse(template.render(data, request))
 
 def editorDetail(request, editor_id):
@@ -38,7 +42,9 @@ def editorDetail(request, editor_id):
         item = Editor.objects.get(pk=editor_id)
     except Editor.DoesNotExist:
         raise Http404("This editor does not exist")
-    return Editor(request, 'finder/editordetail.html', {'item':item})
+    data = {'item':item, 'pic':item.getPictureLink()[14:]}
+    template = loader.get_template('finder/editordetail.html')
+    return HttpResponse(template.render(data, request))
 
 
 
@@ -64,15 +70,21 @@ def licenceDetail(request, licence_id):
 
 def devList(request):
     template = loader.get_template('finder/devlist.html')
-    data = {}
+    items = Developer.objects.all()
+    itemList = {}
+    for item in items:
+        itemList[item] = str(item.picture)[14:]
+    data = {'itemList': itemList}
     return HttpResponse(template.render(data, request))
 
-def devDetail(request, dev_id):
+def devDetail(request, developer_id):
     try:
-        item = Developer.objects.get(pk=dev_id)
+        item = Developer.objects.get(pk=developer_id)
     except Developer.DoesNotExist:
-        raise Http404("This developer does not exist")
-    return Developer(request, 'finder/devdetail.html', {'item':item})
+        raise Http404("This licence does not exist")
+    data = {'item':item, 'pic':item.getPictureLink()[14:]}
+    template = loader.get_template('finder/devdetail.html')
+    return HttpResponse(template.render(data, request))
 
 
 

@@ -74,6 +74,9 @@ class Editor(models.Model):
     def dataLine(self) -> str:
         return f"{self.name} {self.release_date}"
 
+    def getPictureLink(self) -> str:
+        return str(self.picture)
+
 class Developer(models.Model):
     name = models.CharField(max_length=64)
     release_date = models.DateField(null=True, blank=True)
@@ -91,6 +94,9 @@ class Developer(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def getPictureLink(self) -> str:
+        return str(self.picture)
 
 class Game(models.Model):
     name = models.CharField(max_length=64)

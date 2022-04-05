@@ -5,7 +5,32 @@ Devs
 {% endblock %}
 
 {% block contenu %}
-                {% for element in items %}
-                    <br><br><p>{{element}}</p>
+                {% for element, pic in itemList.items %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-2">                                
+                            </div>
+                            <div class="col-8">
+                                <div class="itemCard">
+                                    <h2>{{ element.name }}</h2>
+                                    <hr class="solid">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <img src="{% static pic %}" alt="" class="img-fluid" width="200" height="200">
+                                                
+                                            </div>
+                                            <div class="col-6">
+                                                <a href="{% url 'finder:detailDev' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>                               
+                            </div>
+                            <div class="col-2">                                
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
 {% endblock %}

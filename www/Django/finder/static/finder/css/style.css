@@ -13,7 +13,7 @@ body {
 }
 
 .itemCard {
-    background-color: rgba(250, 235, 215, 0.8);
+    background-color: rgba(250, 235, 215, 0.7);
     border-width: 1px;
     border-color: black;
     border-radius: 30px;
@@ -21,8 +21,62 @@ body {
     margin-bottom: 25px;
     padding: 10px;
     padding-bottom: 15px;
+    animation-duration: 1s;
+    animation-name: unhoveringItemCard;
 }
 
 .itemCard h2 {
     padding-left: 25px;
+}
+
+.itemCard:hover {
+    background-color: rgba(250, 235, 215, 0.9);
+    animation-duration: 2s;
+    animation-name: hoveringItemCard;
+}
+
+img, .zoomOnHover {
+    animation-duration: 1s;
+    animation-name: imageMiniZoomOut;
+    transform: scale(1, 1)
+}
+img:hover, .zoomOnHover {
+    animation-duration: 2s;
+    animation-name: imageMiniZoomIn;
+    transform: scale(1.2, 1.2)
+}
+
+
+@keyframes hoveringItemCard {
+    from {
+      background-color: rgba(250, 235, 215, 0.7);
+    }
+  
+    to {
+      background-color: rgba(250, 235, 215, 0.9);
+    }
+}
+@keyframes unhoveringItemCard {
+    from {
+      background-color: rgba(250, 235, 215, 0.9);
+    }
+  
+    to {
+      background-color: rgba(250, 235, 215, 0.7);
+    }
+}
+
+@keyframes imageMiniZoomIn {
+    from {
+        transform: scale(1, 1);
+    } to {
+        transform: scale(1.2, 1.2);
+    }
+}
+@keyframes imageMiniZoomOut {
+    from {
+        transform: scale(1.2, 1.2);
+    } to {
+        transform: scale(1, 1);
+    }
 }

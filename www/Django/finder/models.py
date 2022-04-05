@@ -29,6 +29,9 @@ class Licence(models.Model):
 
     def dataLine(self) -> str:
         return f"{self.name}"
+    
+    def getPictureLink(self) -> str:
+        return str(self.picture)
 
 class Tag(models.Model):
     libelle = models.CharField(max_length=64)
@@ -39,6 +42,9 @@ class Tag(models.Model):
 
     def dataLine(self) -> str:
         return f"{self.name}"
+
+    def getPictureLink(self) -> str:
+        return str(self.picture)
     
 
 class Platform(models.Model):
@@ -98,7 +104,7 @@ class Game(models.Model):
     licence = models.ManyToManyField(Licence, blank=True, null=True)
 
     def __str__(self) -> str:
-        return f"[{self.release_date}] {self.name}" 
+        return f"[{self.release_date.year}] {self.name}" 
     
     def dataLine(self) -> str:
         base = ""

@@ -76,7 +76,10 @@ def devDetail(request, dev_id):
 def tagList(request):
     template = loader.get_template('finder/taglist.html')
     items = Tag.objects.all()
-    data = {'items':items}
+    itemList = {}
+    for item in items:
+        itemList[item] = str(item.picture)[14:]
+    data = {'itemList': itemList}
     return HttpResponse(template.render(data, request))
 
 def tagDetail(request, tag_id):

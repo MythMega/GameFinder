@@ -14,34 +14,44 @@ class User(models.Model):
     birthday = models.DateField(null=True, blank=True)
     account_creation = models.DateField(default=d.today())
     permission_level = models.PositiveSmallIntegerField()
-    picture_profile = models.ImageField(upload_to='img/user/profile_pic',null=True, blank=True)
-    picture_profile = models.ImageField(upload_to='img/user/banner_pic',null=True, blank=True)
+    picture_profile = models.ImageField(upload_to='finder/static/finder/img/user/profile_pic',null=True, blank=True)
+    picture_profile = models.ImageField(upload_to='finder/static/finder/img/user/banner_pic',null=True, blank=True)
 
     def __str__(self) -> str:
         return f'{self.username} ({self.mail}) [{self.level}]'
 
 class Licence(models.Model):
     name = models.CharField(max_length=64)
-    picture = models.ImageField(upload_to='img/licence/',null=True, blank=True)
+    picture = models.ImageField(upload_to='finder/static/finder/img/licence/',null=True, blank=True)
 
     def __str__(self) -> str:
         return self.name
 
+    def dataLine(self) -> str:
+        return f"{self.name}"
+
 class Tag(models.Model):
     libelle = models.CharField(max_length=64)
-    picture = models.ImageField(upload_to='img/tag/',null=True, blank=True)
+    picture = models.ImageField(upload_to='finder/static/finder/img/tag/',null=True, blank=True)
 
     def __str__(self) -> str:
         return self.libelle
 
+    def dataLine(self) -> str:
+        return f"{self.name}"
+    
+
 class Platform(models.Model):
     name = models.CharField(max_length=64)
-    picture = models.ImageField(upload_to='img/platform/',null=True, blank=True)
+    picture = models.ImageField(upload_to='finder/static/finder/img/platform/',null=True, blank=True)
     release_date = models.DateField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
 
     def __str__(self) -> str:
         return self.name
+    
+    def dataLine(self) -> str:
+        return f"{self.name} {self.description} {self.release_date}"
 
 class Editor(models.Model):
     name = models.CharField(max_length=64)
@@ -50,12 +60,23 @@ class Editor(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+    def dataLine(self) -> str:
+        return f"{self.name} {self.release_date}"
 
 class Developer(models.Model):
     name = models.CharField(max_length=64)
     release_date = models.DateField(null=True, blank=True)
     isActive = models.BooleanField(default=True)
     isIndependant = models.BooleanField(default=False)
+
+    def dataLine(self) -> str:
+        base = ""
+        if self.isActive:
+            base += "active "
+        if self.isIndependant:
+            base += "independant"
+        return f"{base} {self.name} {self.release_date}"
 
     def __str__(self) -> str:
         return self.name
@@ -69,7 +90,7 @@ class Game(models.Model):
     isOnline = models.BooleanField(null=True, blank=True)
     isFree = models.BooleanField(null=True, blank=True)
     url = models.CharField(max_length=255 , null=True, blank=True)
-    picture = models.ImageField(upload_to='img/game/',null=True, blank=True)
+    picture = models.ImageField(upload_to='finder/static/finder/img/game/',null=True, blank=True)
     developer = models.ManyToManyField(Developer, blank=True, null=True)
     editor = models.ManyToManyField(Editor, blank=True, null=True)
     platform = models.ManyToManyField(Platform, blank=True, null=True)
@@ -78,6 +99,20 @@ class Game(models.Model):
 
     def __str__(self) -> str:
         return f"[{self.release_date}] {self.name}" 
+    
+    def dataLine(self) -> str:
+        base = ""
+        if self.isOnline:
+            base += "Online "
+        else:
+            base += "Offline "
+        if self.isCoop:
+            base += "Coop "
+        if self.isFree:
+            base += "Free "
+        else:
+            base += "paid "
+        return f"{base} {self.name} {self.description} {self.release_date} {self.release_date}"
 
 class Submission(models.Model):
     date_creation = models.DateField(default=d.today())

@@ -2,7 +2,22 @@ h1 {
     color: rgb(5, 200, 5);
 }
 
+h2 {
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
 body {
     background: black url("../img/bg.jpg") no-repeat;
     background-position: center;
+}
+
+.itemCard {
+    background-color: rgba(250, 235, 215, 0.8);
+    border-width: 1px;
+    border-color: black;
+    border-radius: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 10px;
 }

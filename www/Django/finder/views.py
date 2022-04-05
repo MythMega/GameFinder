@@ -1,6 +1,8 @@
 from django.http import Http404, HttpResponse
+from django.test import tag
 from .models import *
 from django.template import loader
+import random
 
 
 def index(request):
@@ -37,6 +39,23 @@ def editorDetail(request, editor_id):
         raise Http404("This editor does not exist")
     return Editor(request, 'finder/editordetail.html', {'item':item})
 
+
+
+def licenceList(request):
+    template = loader.get_template('finder/licencelist.html')
+    items = Licence.objects.all()
+    itemList = {}
+    for item in items:
+        itemList[item] = str(item.picture)[14:]
+    data = {'itemList': itemList}
+    return HttpResponse(template.render(data, request))
+
+def licenceDetail(request, licence_id):
+    try:
+        item = Licence.objects.get(pk=licence_id)
+    except Licence.DoesNotExist:
+        raise Http404("This licence does not exist")
+    return Licence(request, 'finder/licencedetail.html', {'item':item, 'pic':item.picture[14:]})
 
 
 
@@ -81,7 +100,62 @@ def platformDetail(request, platform_id):
         raise Http404("This platform does not exist")
     return Platform(request, 'finder/platformdetail.html', {'item':item})
 
+def research(request, stringInput):
+    t = Tag.objects.all()
+    g = Game.objects.all()
+    d = Developer.objects.all()
+    e = Editor.objects.all()
+    p = Platform.objects.all()
+    l = Licence.objects.all()
+    tags = [];games = [];devs = [];editors = [];platforms = [];licences = []
 
+    for item in t:
+        dataItem = item.dataLine()
+        if dataItem.find(stringInput) != -1:
+            tags.append(item)
+    
+    for item in g:
+        dataItem = item.dataLine()
+        if dataItem.find(stringInput) != -1:
+            games.append(item)
+
+    for item in d:
+        dataItem = item.dataLine()
+        if dataItem.find(stringInput) != -1:
+            devs.append(item)
+
+    for item in e:
+        dataItem = item.dataLine()
+        if dataItem.find(stringInput) != -1:
+            editors.append(item)
+
+    for item in p:
+        dataItem = item.dataLine()
+        if dataItem.find(stringInput) != -1:
+            platforms.append(item)
+
+    for item in l:
+        dataItem = item.dataLine()
+        if dataItem.find(stringInput) != -1:
+            licences.append(item)
+
+    template = loader.get_template('finder/search.html')
+    data = {'games':games, 'licences':licences, 'devs':devs, 'editors':editors, 'platforms':platforms, 'tags':tags}
+    return HttpResponse(template.render(data, request))
+
+def randomPage(request):
+    t = Tag.objects.order_by("?")
+    g = Game.objects.order_by("?")
+    d = Developer.objects.order_by("?")
+    e = Editor.objects.order_by("?")
+    p = Platform.objects.order_by("?")
+    l = Licence.objects.order_by("?")
+    listToRandom = [t,g,d,e,p,l]
+    item = random.choice(listToRandom)
+    switcher = {t:"tag", g:"game", d:"dev", e:"editor", p:"platform", l:"licence"}
+    template = loader.get_template(f"finder/{switcher[item]}detail.html")
+    data = {'item':item}
+    return HttpResponse(template.render(data, request))
 
 def pendingSubmissions(request):
     template = loader.get_template('finder/pendingSubmission.html')

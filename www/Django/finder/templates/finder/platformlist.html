@@ -1,9 +1,11 @@
 {% extends "finder/template_page.html" %}
 {% load static %}
 {% block titre %}
-<!-- TITLE -->
+Platforms
 {% endblock %}
 
 {% block contenu %}
-<!-- html content code -->
+                {% for element in items %}
+                    <br><br><p>{{element}}</p>
+                {% endfor %}
 {% endblock %}

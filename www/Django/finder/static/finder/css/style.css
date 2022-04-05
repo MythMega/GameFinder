@@ -8,8 +8,8 @@ h2 {
 }
 
 body {
-    background: black url("../img/bg.jpg") no-repeat;
-    background-position: center;
+    background: black url("../img/bg.jpg") no-repeat fixed;
+    background-position: 0% 75%;
 }
 
 .itemCard {
@@ -20,4 +20,9 @@ body {
     margin-top: 25px;
     margin-bottom: 25px;
     padding: 10px;
+    padding-bottom: 15px;
+}
+
+.itemCard h2 {
+    padding-left: 25px;
 }

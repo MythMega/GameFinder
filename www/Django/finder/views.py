@@ -1,3 +1,4 @@
+from re import template
 from django.http import Http404, HttpResponse
 from django.test import tag
 from .models import *
@@ -55,7 +56,9 @@ def licenceDetail(request, licence_id):
         item = Licence.objects.get(pk=licence_id)
     except Licence.DoesNotExist:
         raise Http404("This licence does not exist")
-    return Licence(request, 'finder/licencedetail.html', {'item':item, 'pic':item.picture[14:]})
+    data = {'item':item, 'pic':item.getPictureLink()[14:]}
+    template = loader.get_template('finder/licencedetail.html')
+    return HttpResponse(template.render(data, request))
 
 
 
@@ -87,21 +90,29 @@ def tagDetail(request, tag_id):
         item = Tag.objects.get(pk=tag_id)
     except Tag.DoesNotExist:
         raise Http404("This tag does not exist")
-    return Tag(request, 'finder/tagdetail.html', {'item':item})
+    data = {'item':item, 'pic':item.getPictureLink()[14:]}
+    template = loader.get_template('finder/tagdetail.html')
+    return HttpResponse(template.render(data, request))
 
 
 
 def platformList(request):
     template = loader.get_template('finder/platformlist.html')
-    data = {}
+    items = Platform.objects.all()
+    itemList = {}
+    for item in items:
+        itemList[item] = str(item.picture)[14:]
+    data = {'itemList': itemList}
     return HttpResponse(template.render(data, request))
 
 def platformDetail(request, platform_id):
     try:
         item = Platform.objects.get(pk=platform_id)
     except Platform.DoesNotExist:
-        raise Http404("This platform does not exist")
-    return Platform(request, 'finder/platformdetail.html', {'item':item})
+        raise Http404("This tag does not exist")
+    data = {'item':item, 'pic':item.getPictureLink()[14:]}
+    template = loader.get_template('finder/platformdetail.html')
+    return HttpResponse(template.render(data, request))
 
 def research(request, stringInput):
     t = Tag.objects.all()

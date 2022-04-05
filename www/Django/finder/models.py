@@ -58,6 +58,9 @@ class Platform(models.Model):
     
     def dataLine(self) -> str:
         return f"{self.name} {self.description} {self.release_date}"
+    
+    def getPictureLink(self) -> str:
+        return str(self.picture)
 
 class Editor(models.Model):
     name = models.CharField(max_length=64)

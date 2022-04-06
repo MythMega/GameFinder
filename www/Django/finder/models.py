@@ -23,6 +23,7 @@ class User(models.Model):
 class Licence(models.Model):
     name = models.CharField(max_length=64)
     picture = models.ImageField(upload_to='finder/static/finder/img/licence/',null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
 
     def __str__(self) -> str:
         return self.name
@@ -40,6 +41,7 @@ class Licence(models.Model):
 class Tag(models.Model):
     libelle = models.CharField(max_length=64)
     picture = models.ImageField(upload_to='finder/static/finder/img/tag/',null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
 
     def __str__(self) -> str:
         return self.libelle
@@ -99,6 +101,7 @@ class Developer(models.Model):
     isActive = models.BooleanField(default=True)
     isIndependant = models.BooleanField(default=False)
     picture = models.ImageField(upload_to='finder/static/finder/img/platform/',null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
 
     def dataLine(self) -> str:
         base = ""

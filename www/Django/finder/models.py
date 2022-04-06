@@ -1,4 +1,5 @@
 
+import django
 from django.db import models
 from django.utils import timezone
 from datetime import date as d, datetime as dt 
@@ -12,7 +13,7 @@ class User(models.Model):
     level = models.PositiveIntegerField(default=1)
     desc_text = models.TextField(null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
-    account_creation = models.DateField(default=d.today())
+    account_creation = models.DateField(django.utils.timezone.now)
     permission_level = models.PositiveSmallIntegerField()
     picture_profile = models.ImageField(upload_to='finder/static/finder/img/user/profile_pic',null=True, blank=True)
     picture_banner = models.ImageField(upload_to='finder/static/finder/img/user/banner_pic',null=True, blank=True)
@@ -168,7 +169,7 @@ class Game(models.Model):
         return f"{base} {self.name} {self.release_date} {self.release_date}"
 
 class Submission(models.Model):
-    date_creation = models.DateField(default=d.today())
+    date_creation = models.DateField(django.utils.timezone.now)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     validated = models.BooleanField(default=False)

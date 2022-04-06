@@ -5,5 +5,31 @@ Game
 {% endblock %}
 
 {% block contenu %}
-<!-- html content code -->
+    <div class="container itemCard">
+        <img src="{% static item.getBannerLink %}" alt="" class="imgBanner">
+        <div class="row">
+            <div class="col-2">                                
+            </div>
+            <div class="col-8">
+                <div class="itemCard">
+                    <h2>{{ item.name }}</h2>
+                    <hr class="solid">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="{% static item.getPictureLink %}" alt="" class="img-fluid" width="200" height="200">
+                                
+                            </div>
+                            <div class="col-6">
+                                <a href="{{ item.url }}"><button type="button" class="btn btn-warning">Get it !</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>                               
+            </div>
+            <div class="col-2">                                
+            </div>
+        </div>
+    </div>
 {% endblock %}

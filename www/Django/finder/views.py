@@ -33,7 +33,7 @@ def editorList(request):
     items = Editor.objects.all()
     itemList = {}
     for item in items:
-        itemList[item] = str(item.picture)[14:]
+        itemList[item] = item.getPictureLink()
     data = {'itemList': itemList}
     return HttpResponse(template.render(data, request))
 
@@ -42,7 +42,7 @@ def editorDetail(request, editor_id):
         item = Editor.objects.get(pk=editor_id)
     except Editor.DoesNotExist:
         raise Http404("This editor does not exist")
-    data = {'item':item, 'pic':item.getPictureLink()[14:]}
+    data = {'item':item, 'pic':item.getPictureLink()}
     template = loader.get_template('finder/editordetail.html')
     return HttpResponse(template.render(data, request))
 
@@ -53,7 +53,7 @@ def licenceList(request):
     items = Licence.objects.all()
     itemList = {}
     for item in items:
-        itemList[item] = str(item.picture)[14:]
+        itemList[item] = item.getPictureLink()
     data = {'itemList': itemList}
     return HttpResponse(template.render(data, request))
 
@@ -62,7 +62,7 @@ def licenceDetail(request, licence_id):
         item = Licence.objects.get(pk=licence_id)
     except Licence.DoesNotExist:
         raise Http404("This licence does not exist")
-    data = {'item':item, 'pic':item.getPictureLink()[14:]}
+    data = {'item':item, 'pic':item.getPictureLink()}
     template = loader.get_template('finder/licencedetail.html')
     return HttpResponse(template.render(data, request))
 
@@ -73,7 +73,7 @@ def devList(request):
     items = Developer.objects.all()
     itemList = {}
     for item in items:
-        itemList[item] = str(item.picture)[14:]
+        itemList[item] = item.getPictureLink()
     data = {'itemList': itemList}
     return HttpResponse(template.render(data, request))
 
@@ -82,7 +82,7 @@ def devDetail(request, developer_id):
         item = Developer.objects.get(pk=developer_id)
     except Developer.DoesNotExist:
         raise Http404("This licence does not exist")
-    data = {'item':item, 'pic':item.getPictureLink()[14:]}
+    data = {'item':item, 'pic':item.getPictureLink()}
     template = loader.get_template('finder/devdetail.html')
     return HttpResponse(template.render(data, request))
 
@@ -93,7 +93,7 @@ def tagList(request):
     items = Tag.objects.all()
     itemList = {}
     for item in items:
-        itemList[item] = str(item.picture)[14:]
+        itemList[item] = str(item.getPictureLink())
     data = {'itemList': itemList}
     return HttpResponse(template.render(data, request))
 
@@ -102,7 +102,7 @@ def tagDetail(request, tag_id):
         item = Tag.objects.get(pk=tag_id)
     except Tag.DoesNotExist:
         raise Http404("This tag does not exist")
-    data = {'item':item, 'pic':item.getPictureLink()[14:]}
+    data = {'item':item, 'pic':item.getPictureLink()}
     template = loader.get_template('finder/tagdetail.html')
     return HttpResponse(template.render(data, request))
 
@@ -113,7 +113,7 @@ def platformList(request):
     items = Platform.objects.all()
     itemList = {}
     for item in items:
-        itemList[item] = str(item.picture)[14:]
+        itemList[item] = str(item.getPictureLink())
     data = {'itemList': itemList}
     return HttpResponse(template.render(data, request))
 

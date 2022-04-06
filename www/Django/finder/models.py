@@ -31,7 +31,7 @@ class Licence(models.Model):
         return f"{self.name}"
     
     def getPictureLink(self) -> str:
-        return str(self.picture)
+        return str(self.picture)[14:]
 
 class Tag(models.Model):
     libelle = models.CharField(max_length=64)
@@ -44,7 +44,7 @@ class Tag(models.Model):
         return f"{self.libelle}"
 
     def getPictureLink(self) -> str:
-        return str(self.picture)
+        return str(self.picture)[14:]
     
 
 class Platform(models.Model):
@@ -60,7 +60,7 @@ class Platform(models.Model):
         return f"{self.name} {self.release_date}"
     
     def getPictureLink(self) -> str:
-        return str(self.picture)
+        return str(self.picture)[14:]
 
 class Editor(models.Model):
     name = models.CharField(max_length=64)
@@ -75,7 +75,7 @@ class Editor(models.Model):
         return f"{self.name} {self.release_date}"
 
     def getPictureLink(self) -> str:
-        return str(self.picture)
+        return str(self.picture)[14:]
 
 class Developer(models.Model):
     name = models.CharField(max_length=64)
@@ -96,7 +96,7 @@ class Developer(models.Model):
         return self.name
 
     def getPictureLink(self) -> str:
-        return str(self.picture)
+        return str(self.picture)[14:]
 
 class Game(models.Model):
     name = models.CharField(max_length=64)
@@ -120,7 +120,7 @@ class Game(models.Model):
         return f"[{self.release_date.year}] {self.name}"
 
     def getPictureLink(self) -> str:
-        return str(self.picture_icon) 
+        return str(self.picture_icon)[14:]
     
     def dataLine(self) -> str:
         base = ""

@@ -16,7 +16,7 @@ body {
     background-color: rgba(250, 235, 215, 0.7);
     border-width: 1px;
     border-color: black;
-    border-radius: 30px;
+    border-radius: 10px;
     margin-top: 25px;
     margin-bottom: 25px;
     padding: 10px;
@@ -35,17 +35,32 @@ body {
     animation-name: hoveringItemCard;
 }
 
-img, .zoomOnHover {
+.zoomOnHover {
     animation-duration: 1s;
     animation-name: imageMiniZoomOut;
     transform: scale(1, 1)
 }
-img:hover, .zoomOnHover {
+.zoomOnHover:hover {
     animation-duration: 2s;
     animation-name: imageMiniZoomIn;
     transform: scale(1.2, 1.2)
 }
 
+.imgBanner {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.imgFoot {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.btnEnd {
+    margin-left: 100px;
+}
 
 @keyframes hoveringItemCard {
     from {

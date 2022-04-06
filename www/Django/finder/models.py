@@ -262,6 +262,8 @@ class Game(models.Model):
     def __str__(self) -> str:
         return f"[{self.release_date.year}] {self.name}"
 
+    
+
     def getPictureLink(self) -> str:
         return str(self.picture_icon)[14:]
 

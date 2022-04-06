@@ -18,10 +18,24 @@ Game
                         <div class="row">
                             <div class="col-6">
                                 <img src="{% static item.getPictureLink %}" alt="" class="img-fluid" width="200" height="200">
-                                
                             </div>
                             <div class="col-6">
-                                <a href="{{ item.url }}"><button type="button" class="btn btn-warning">Get it !</button></a>
+                                <span>{%if item.licence.all%}License(s) :{%else%}No license{%endif%}{% for l in item.licence.all %} {{l.name}};{%endfor%}</span><br>
+                                <span>{%if item.developer.all%}Dev(s) :{%else%}Unknown dev{%endif%}{% for d in item.developer.all %} {{d.name}};{%endfor%}</span><br>
+                                <span>{%if item.editor.all%}Editors(s) :{%else%}No Editors{%endif%}{% for e in item.editor.all %} {{e.name}};{%endfor%}</span><br>
+                                <span>{%if item.platform.all%}Platform(s) :{%else%}No Platform ?????{%endif%}{% for p in item.platform.all %} {{p.name}};{%endfor%}</span><br>
+                                <span>{%if item.tag.all%}Tags(s) :{%else%}No Tag{%endif%}{% for t in item.tag.all %} {{t.libelle}};{%endfor%}</span><br>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="row">
+                            <div class="col-12">
+                                <span>{{ item.description }}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                
                             </div>
                         </div>
                     </div>
@@ -31,5 +45,10 @@ Game
             <div class="col-2">                                
             </div>
         </div>
+        <div class="">
+            <center><a href="{{ item.url }}"><button type="button" class="btn btn-warning btnEnd">Get it !</button></a></center>
+        </div>
+        <br><br><br>
+        <img src="{% static item.getGameplayLink %}" alt="" class="imgFoot">
     </div>
 {% endblock %}

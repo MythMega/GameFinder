@@ -1,0 +1,184 @@
+{% extends "finder/template_page.html" %}
+{% load static %}
+{% block titre %}
+Research
+{% endblock %}
+
+{% block contenu %}
+    <div class="container">
+        <div class="titleSection"><h1>Games</h1></div>
+    {% for element in games %}
+
+        <div class="row">
+            <div class="col-2">                                
+            </div>
+            <div class="col-8">
+                <div class="itemCard">
+                    <h2>{{ element.name }}</h2>
+                    <hr class="solid">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="{% static pic %}" alt="" class="img-fluid" width="200" height="200">
+                                
+                            </div>
+                            <div class="col-6">
+                                <a href="{% url 'finder:detailGame' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>                               
+            </div>
+            <div class="col-2">                                
+            </div>
+        </div>
+    
+    {% endfor %}
+        <div class="titleSection"><h1>Licence</h1></div>
+    {% for element in licences %}
+
+    <div class="row">
+        <div class="col-2">                                
+        </div>
+        <div class="col-8">
+            <div class="itemCard">
+                <h2>{{ element.name }}</h2>
+                <hr class="solid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{% static pic %}" alt="" class="img-fluid" width="200" height="200">
+                            
+                        </div>
+                        <div class="col-6">
+                            <a href="{% url 'finder:detailLicence' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>                               
+        </div>
+        <div class="col-2">                                
+        </div>
+    </div>
+
+{% endfor %}
+<div class="titleSection"><h1>Devs</h1></div>
+    {% for element in devs %}
+
+    <div class="row">
+        <div class="col-2">                                
+        </div>
+        <div class="col-8">
+            <div class="itemCard">
+                <h2>{{ element.name }}</h2>
+                <hr class="solid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{% static pic %}" alt="" class="img-fluid" width="200" height="200">
+                            
+                        </div>
+                        <div class="col-6">
+                            <a href="{% url 'finder:detailLicence' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>                               
+        </div>
+        <div class="col-2">                                
+        </div>
+    </div>
+
+{% endfor %}
+<div class="titleSection"><h1>Editors</h1></div>
+    {% for element in editors %}
+
+    <div class="row">
+        <div class="col-2">                                
+        </div>
+        <div class="col-8">
+            <div class="itemCard">
+                <h2>{{ element.name }}</h2>
+                <hr class="solid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{% static pic %}" alt="" class="img-fluid" width="200" height="200">
+                            
+                        </div>
+                        <div class="col-6">
+                            <a href="{% url 'finder:detailLicence' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>                               
+        </div>
+        <div class="col-2">                                
+        </div>
+    </div>
+
+{% endfor %}
+<div class="titleSection"><h1>Platforms</h1></div>
+    {% for element in platforms %}
+
+    <div class="row">
+        <div class="col-2">                                
+        </div>
+        <div class="col-8">
+            <div class="itemCard">
+                <h2>{{ element.name }}</h2>
+                <hr class="solid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{% static pic %}" alt="" class="img-fluid" width="200" height="200">
+                            
+                        </div>
+                        <div class="col-6">
+                            <a href="{% url 'finder:detailLicence' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>                               
+        </div>
+        <div class="col-2">                                
+        </div>
+    </div>
+
+{% endfor %}
+<div class="titleSection"><h1>Tags</h1></div>
+    {% for element in tags %}
+
+    <div class="row">
+        <div class="col-2">                                
+        </div>
+        <div class="col-8">
+            <div class="itemCard">
+                <h2>{{ element.libelle }}</h2>
+                <hr class="solid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{% static pic %}" alt="" class="img-fluid" width="200" height="200">
+                            
+                        </div>
+                        <div class="col-6">
+                            <a href="{% url 'finder:detailLicence' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>                               
+        </div>
+        <div class="col-2">                                
+        </div>
+    </div>
+
+{% endfor %}
+    </div>
+{% endblock %}

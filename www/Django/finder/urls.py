@@ -22,4 +22,5 @@ urlpatterns = [
     path('platform/<int:platform_id>/', views.platformDetail, name='detailPlatform'),
     path('licence/<int:licence_id>/', views.licenceDetail, name='detailLicence'),
     path('random/', views.randomPage, name='randomPage'),
+    path('search/', views.research, name='search'),
 ]

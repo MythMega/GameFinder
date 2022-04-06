@@ -2,6 +2,7 @@ import django
 from django.db import models
 from django.utils import timezone
 from datetime import date as d, datetime as dt 
+import random
 
 class User(models.Model):
     username = models.CharField(max_length=32) #32 caractères
@@ -47,9 +48,17 @@ class Licence(models.Model):
             resultat += t[i] + " "
         resultat += "..."
         return resultat
+    
+    def getPreInfos(self):
+        if len(self.listeDejeu()) < 1: return ""
+        elif len(self.listeDejeu()) < 2: return f"Contain only {self.listeDejeu()[0].name}."
+        else:
+            alea = random.randint(1, len(self.listeDejeu())) - 1
+            alea2 =  len(self.listeDejeu())-1 - alea
+            return f"Developer of games like {self.listeDejeu()[alea].name} or {self.listeDejeu()[alea2].name}"
 
     def listeDejeu(self):
-        liste = license.game
+        return self.game_set.all()
 
 class Tag(models.Model):
     libelle = models.CharField(max_length=64)
@@ -78,6 +87,17 @@ class Tag(models.Model):
             resultat += t[i] + " "
         resultat += "..."
         return resultat
+
+    def getPreInfos(self):
+        if len(self.listeDejeu()) < 1: return ""
+        elif len(self.listeDejeu()) < 2: return f"Contain only {self.listeDejeu()[0].name}."
+        else:
+            alea = random.randint(1, len(self.listeDejeu())) - 1
+            alea2 =  len(self.listeDejeu()) -1 - alea
+            return f"Developer of games like {self.listeDejeu()[alea].name} or {self.listeDejeu()[alea2].name}"
+
+    def listeDejeu(self):
+        return self.game_set.all()
     
 
 class Platform(models.Model):
@@ -109,6 +129,17 @@ class Platform(models.Model):
         resultat += "..."
         return resultat
 
+    def getPreInfos(self):
+        if len(self.listeDejeu()) < 1: return ""
+        elif len(self.listeDejeu()) < 2: return f"Contain only {self.listeDejeu()[0].name}."
+        else:
+            alea = random.randint(1, len(self.listeDejeu())) - 1
+            alea2 =  len(self.listeDejeu())-1 - alea
+            return f"Developer of games like {self.listeDejeu()[alea].name} or {self.listeDejeu()[alea2].name}"
+
+    def listeDejeu(self):
+        return self.game_set.all()
+
 class Editor(models.Model):
     name = models.CharField(max_length=64)
     release_date = models.DateField(null=True, blank=True)
@@ -137,6 +168,17 @@ class Editor(models.Model):
 
     def getPictureLink(self) -> str:
         return str(self.picture)[14:]
+
+    def getPreInfos(self):
+        if len(self.listeDejeu()) < 1: return ""
+        elif len(self.listeDejeu()) < 2: return f"Editor of only {self.listeDejeu()[0].name}."
+        else:
+            alea = random.randint(1, len(self.listeDejeu())) - 1
+            alea2 =  len(self.listeDejeu())-1 - alea
+            return f"Editor of games like {self.listeDejeu()[alea].name} or {self.listeDejeu()[alea2].name}"
+
+    def listeDejeu(self):
+        return self.game_set.all()
 
 class Developer(models.Model):
     name = models.CharField(max_length=64)
@@ -173,6 +215,17 @@ class Developer(models.Model):
 
     def getPictureLink(self) -> str:
         return str(self.picture)[14:]
+
+    def getPreInfos(self):
+        if len(self.listeDejeu()) < 1: return ""
+        elif len(self.listeDejeu()) < 2: return f"Developer of only {self.listeDejeu()[0].name}."
+        else:
+            alea = random.randint(1, len(self.listeDejeu())) - 1
+            alea2 =  len(self.listeDejeu())-1 - alea
+            return f"Developer of games like {self.listeDejeu()[alea].name} or {self.listeDejeu()[alea2].name}"
+
+    def listeDejeu(self):
+        return self.game_set.all()
 
 class Game(models.Model):
     name = models.CharField(max_length=64)
@@ -211,6 +264,12 @@ class Game(models.Model):
 
     def getPictureLink(self) -> str:
         return str(self.picture_icon)[14:]
+
+    def getBannerLink(self) -> str:
+        return str(self.picture_banner)[14:]
+
+    def getGameplayLink(self) -> str:
+        return str(self.picture_gameplay)[14:]
     
     def dataLine(self) -> str:
         base = ""

@@ -24,7 +24,9 @@ def gameDetail(request, game_id):
         item = Game.objects.get(pk=game_id)
     except Game.DoesNotExist:
         raise Http404("This game does not exist")
-    return Game(request, 'finder/gamedetail.html', {'item':item})
+    data = {'item':item, 'pic':item.getPictureLink()}
+    template = loader.get_template('finder/gamedetail.html')
+    return HttpResponse(template.render(data, request))
 
 
 

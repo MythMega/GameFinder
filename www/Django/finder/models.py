@@ -41,7 +41,7 @@ class Tag(models.Model):
         return self.libelle
 
     def dataLine(self) -> str:
-        return f"{self.name}"
+        return f"{self.libelle}"
 
     def getPictureLink(self) -> str:
         return str(self.picture)

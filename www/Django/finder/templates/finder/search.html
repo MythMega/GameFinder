@@ -81,7 +81,7 @@ Research
                             
                         </div>
                         <div class="col-6">
-                            <a href="{% url 'finder:detailLicence' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                            <a href="{% url 'finder:detailDev' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ Research
                             
                         </div>
                         <div class="col-6">
-                            <a href="{% url 'finder:detailLicence' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                            <a href="{% url 'finder:detailEditor' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
                         </div>
                     </div>
                 </div>
@@ -139,7 +139,7 @@ Research
                             
                         </div>
                         <div class="col-6">
-                            <a href="{% url 'finder:detailLicence' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                            <a href="{% url 'finder:detailPlatform' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
                         </div>
                     </div>
                 </div>
@@ -164,11 +164,11 @@ Research
                 <div class="container">
                     <div class="row">
                         <div class="col-6">
-                            <img src="{% static pic %}" alt="" class="img-fluid" width="200" height="200">
+                            <img src="{% static element.getPictureLink %}" alt="" class="img-fluid" width="200" height="200">
                             
                         </div>
                         <div class="col-6">
-                            <a href="{% url 'finder:detailLicence' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                            <a href="{% url 'finder:detailTag' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
                         </div>
                     </div>
                 </div>

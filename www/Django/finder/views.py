@@ -122,7 +122,7 @@ def platformDetail(request, platform_id):
         item = Platform.objects.get(pk=platform_id)
     except Platform.DoesNotExist:
         raise Http404("This tag does not exist")
-    data = {'item':item, 'pic':item.getPictureLink()[14:]}
+    data = {'item':item, 'pic':item.getPictureLink()}
     template = loader.get_template('finder/platformdetail.html')
     return HttpResponse(template.render(data, request))
 

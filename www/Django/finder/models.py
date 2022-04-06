@@ -117,7 +117,10 @@ class Game(models.Model):
     licence = models.ManyToManyField(Licence, blank=True, null=True)
 
     def __str__(self) -> str:
-        return f"[{self.release_date.year}] {self.name}" 
+        return f"[{self.release_date.year}] {self.name}"
+
+    def getPictureLink(self) -> str:
+        return str(self.picture_icon) 
     
     def dataLine(self) -> str:
         base = ""

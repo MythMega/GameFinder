@@ -57,7 +57,7 @@ class Platform(models.Model):
         return self.name
     
     def dataLine(self) -> str:
-        return f"{self.name} {self.description} {self.release_date}"
+        return f"{self.name} {self.release_date}"
     
     def getPictureLink(self) -> str:
         return str(self.picture)
@@ -131,7 +131,7 @@ class Game(models.Model):
             base += "Free "
         else:
             base += "paid "
-        return f"{base} {self.name} {self.description} {self.release_date} {self.release_date}"
+        return f"{base} {self.name} {self.release_date} {self.release_date}"
 
 class Submission(models.Model):
     date_creation = models.DateField(default=d.today())

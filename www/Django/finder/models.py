@@ -33,6 +33,10 @@ class Licence(models.Model):
     def getPictureLink(self) -> str:
         return str(self.picture)[14:]
 
+
+    def listeDejeu(self):
+        liste = license.game
+
 class Tag(models.Model):
     libelle = models.CharField(max_length=64)
     picture = models.ImageField(upload_to='finder/static/finder/img/tag/',null=True, blank=True)
@@ -61,6 +65,18 @@ class Platform(models.Model):
     
     def getPictureLink(self) -> str:
         return str(self.picture)[14:]
+
+    def getShortDesc(self) -> str:
+        stringDesc = str(self.description)
+        t = stringDesc.split(" ")
+        resultat = ""
+        for i in range(24):
+            try:
+                resultat += t[i] + " "
+            except:
+                pass
+        resultat += "..."
+        return resultat
 
 class Editor(models.Model):
     name = models.CharField(max_length=64)
@@ -115,6 +131,18 @@ class Game(models.Model):
     platform = models.ManyToManyField(Platform, blank=True, null=True)
     tag = models.ManyToManyField(Tag, blank=True, null=True)
     licence = models.ManyToManyField(Licence, blank=True, null=True)
+
+    def getShortDesc(self) -> str:
+        stringDesc = str(self.description)
+        t = stringDesc.split(" ")
+        resultat = ""
+        for i in range(24):
+            try:
+                resultat += t[i] + " "
+            except:
+                pass
+        resultat += "..."
+        return resultat
 
     def __str__(self) -> str:
         return f"[{self.release_date.year}] {self.name}"

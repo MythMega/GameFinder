@@ -1,4 +1,3 @@
-
 import django
 from django.db import models
 from django.utils import timezone
@@ -35,6 +34,19 @@ class Licence(models.Model):
     def getPictureLink(self) -> str:
         return str(self.picture)[14:]
 
+    def getShortDesc(self) -> str:
+        stringDesc = str(self.description)
+        t = stringDesc.split(" ")
+        resultat = ""
+        lenght = len(t)
+        if lenght>24:
+            motAffiche = 24
+        else:
+            motAffiche = lenght
+        for i in range(motAffiche):
+            resultat += t[i] + " "
+        resultat += "..."
+        return resultat
 
     def listeDejeu(self):
         liste = license.game
@@ -52,6 +64,20 @@ class Tag(models.Model):
 
     def getPictureLink(self) -> str:
         return str(self.picture)[14:]
+
+    def getShortDesc(self) -> str:
+        stringDesc = str(self.description)
+        t = stringDesc.split(" ")
+        resultat = ""
+        lenght = len(t)
+        if lenght>24:
+            motAffiche = 24
+        else:
+            motAffiche = lenght
+        for i in range(motAffiche):
+            resultat += t[i] + " "
+        resultat += "..."
+        return resultat
     
 
 class Platform(models.Model):
@@ -73,11 +99,13 @@ class Platform(models.Model):
         stringDesc = str(self.description)
         t = stringDesc.split(" ")
         resultat = ""
-        for i in range(24):
-            try:
-                resultat += t[i] + " "
-            except:
-                pass
+        lenght = len(t)
+        if lenght>24:
+            motAffiche = 24
+        else:
+            motAffiche = lenght
+        for i in range(motAffiche):
+            resultat += t[i] + " "
         resultat += "..."
         return resultat
 
@@ -89,6 +117,20 @@ class Editor(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def getShortDesc(self) -> str:
+        stringDesc = str(self.description)
+        t = stringDesc.split(" ")
+        resultat = ""
+        lenght = len(t)
+        if lenght>24:
+            motAffiche = 24
+        else:
+            motAffiche = lenght
+        for i in range(motAffiche):
+            resultat += t[i] + " "
+        resultat += "..."
+        return resultat
     
     def dataLine(self) -> str:
         return f"{self.name} {self.release_date}"
@@ -103,6 +145,20 @@ class Developer(models.Model):
     isIndependant = models.BooleanField(default=False)
     picture = models.ImageField(upload_to='finder/static/finder/img/platform/',null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+
+    def getShortDesc(self) -> str:
+        stringDesc = str(self.description)
+        t = stringDesc.split(" ")
+        resultat = ""
+        lenght = len(t)
+        if lenght>24:
+            motAffiche = 24
+        else:
+            motAffiche = lenght
+        for i in range(motAffiche):
+            resultat += t[i] + " "
+        resultat += "..."
+        return resultat
 
     def dataLine(self) -> str:
         base = ""
@@ -140,11 +196,13 @@ class Game(models.Model):
         stringDesc = str(self.description)
         t = stringDesc.split(" ")
         resultat = ""
-        for i in range(24):
-            try:
-                resultat += t[i] + " "
-            except:
-                pass
+        lenght = len(t)
+        if lenght>24:
+            motAffiche = 24
+        else:
+            motAffiche = lenght
+        for i in range(motAffiche):
+            resultat += t[i] + " "
         resultat += "..."
         return resultat
 

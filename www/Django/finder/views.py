@@ -177,12 +177,12 @@ def research(request):
     
 
 def randomPage(request):
-    t = Tag.objects.order_by("?")
-    g = Game.objects.order_by("?")
-    d = Developer.objects.order_by("?")
-    e = Editor.objects.order_by("?")
-    p = Platform.objects.order_by("?")
-    l = Licence.objects.order_by("?")
+    t = Tag.objects.order_by("?").first()
+    g = Game.objects.order_by("?").first()
+    d = Developer.objects.order_by("?").first()
+    e = Editor.objects.order_by("?").first()
+    p = Platform.objects.order_by("?").first()
+    l = Licence.objects.order_by("?").first()
     listToRandom = [t,g,d,e,p,l]
     item = random.choice(listToRandom)
     switcher = {t:"tag", g:"game", d:"dev", e:"editor", p:"platform", l:"licence"}

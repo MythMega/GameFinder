@@ -23,4 +23,5 @@ urlpatterns = [
     path('licence/<int:licence_id>/', views.licenceDetail, name='detailLicence'),
     path('random/', views.randomPage, name='randomPage'),
     path('search/', views.research, name='search'),
+    path('roll/', views.roll, name='roll'),
 ]

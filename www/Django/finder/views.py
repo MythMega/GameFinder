@@ -12,7 +12,10 @@ def index(request):
     data = {'last_submission_list': last_submission_list}
     return HttpResponse(template.render(data, request))
 
-
+def roll(request):
+    data = {}
+    template = loader.get_template('finder/roll.html')
+    return HttpResponse(template.render(data, request))
 
 def gameList(request):
     template = loader.get_template('finder/gamelist.html')

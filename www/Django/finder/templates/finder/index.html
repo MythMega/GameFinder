@@ -4,10 +4,18 @@
 {% block titre %}Index{% endblock %}
 
 {% block contenu %}
-    <h1>Bonjour</h1>
     <br><br><br>
     <center>
-        <button>ROULETTE</button>
+        <div class="dropper20"></div>
+        <div class="superFocus">
+        <a href="{% url 'finder:roll' %}" class="neonButton">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            ROLL
+        </a>
+        </div>
     </center>
     {% if last_submission_list %}
         {% for s in last_submission_list %}

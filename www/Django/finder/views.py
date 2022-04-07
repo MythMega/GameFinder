@@ -13,8 +13,14 @@ def index(request):
     return HttpResponse(template.render(data, request))
 
 def roll(request):
-    data = {}
+    tags = Tag.objects.all()
+    data = {'tags':tags}
     template = loader.get_template('finder/roll.html')
+    return HttpResponse(template.render(data, request))
+
+def rollResult(request):
+    data = {}
+    template = loader.get_template('finder/rollresult.html')
     return HttpResponse(template.render(data, request))
 
 def gameList(request):

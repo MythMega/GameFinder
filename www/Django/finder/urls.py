@@ -24,4 +24,5 @@ urlpatterns = [
     path('random/', views.randomPage, name='randomPage'),
     path('search/', views.research, name='search'),
     path('roll/', views.roll, name='roll'),
+    path('roll/<int:game_id>/', views.rollResult, name='rollResult'),
 ]

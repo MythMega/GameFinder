@@ -1,9 +1,61 @@
 {% extends "finder/template_page.html" %}
 {% load static %}
-{% block titre %}
-Roll - GameFinder
-{% endblock %}
+
+{% block titre %}Roll{% endblock %}
 
 {% block contenu %}
-<!-- html content code -->
+<div class="dropper20"></div>
+<div class="container">
+    <div class="row">
+        <div class="itemCard col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <h2>Free</h2>
+            <input type="radio" name="free" id="freeNC" value="freeNC" checked>
+            <label for="freeNC">No care</label><br>
+            <input type="radio" name="free" id="freeYes" value="freeYes">
+            <label for="freeYes">Yes</label><br>
+            <input type="radio" name="free" id="freeNo" value="freeNo">
+            <label for="freeNo">No</label><br>
+        </div>
+        <div class="itemCard col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <h2>Online</h2>
+            <input type="radio" name="online" id="onlineNC" value="onlineNC" checked>
+            <label for="onlineNC">No care</label><br>
+            <input type="radio" name="online" id="onlineYes" value="onlineYes">
+            <label for="onlineYes">Yes</label><br>
+            <input type="radio" name="online" id="onlineNo" value="onlineNo">
+            <label for="onlineNo">No</label><br>
+        </div>
+        <div class="itemCard col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <h2>Coop</h2>
+            <input type="radio" name="coop" id="coopNC" value="coopNC" checked>
+            <label for="coopNC">No care</label><br>
+            <input type="radio" name="coop" id="coopYes" value="coopYes">
+            <label for="coopYes">Yes</label><br>
+            <input type="radio" name="coop" id="coopNo" value="coopNo">
+            <label for="coopNo">No</label><br>
+        </div> 
+        <div class="itemCard col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <h2>Independant</h2>
+            <input type="radio" name="inde" id="indeNC" value="indeNC" checked>
+            <label for="indeNC">No care</label><br>
+            <input type="radio" name="inde" id="indeYes" value="indeYes">
+            <label for="indeYes">Yes</label><br>
+            <input type="radio" name="inde" id="indeNo" value="indeNo">
+            <label for="indeNo">No</label><br>
+        </div> 
+
+        <center>
+            <div class="dropper20"></div>
+            <div class="superFocus">
+            <a href="{% url 'finder:rollResult' 1 %}" class="neonButton">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                ROLL
+            </a>
+            </div>
+        </center>
+    </div>
+</div>
 {% endblock %}

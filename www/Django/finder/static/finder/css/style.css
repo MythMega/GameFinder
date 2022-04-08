@@ -77,6 +77,18 @@ body {
     margin-top: 20vh;
 }
 
+.upper20{
+    margin-bottom: 20vh;
+}
+
+.dropper10{
+    margin-top: 10vh;
+}
+
+.upper10{
+    margin-bottom: 10vh;
+}
+
 /*********************************/
 /***********Button Neon***********/
 /*********************************/
@@ -95,9 +107,21 @@ body {
     overflow: hidden;
     transition: 0.2s;
     background-color: rgba(0, 0, 0, 0.37);
-    border-color: black;
+    border-color: black !important;
+    border-width: 1px !important;
     box-shadow: 0 0 10px #000000, 0 0 40px #000000, 0 0 80px #000000;
     border-width: 3px;
+}
+
+.miniNeon {
+    padding: 10px 20px !important;
+    letter-spacing: 3px !important;
+    font-size: 18px !important;
+}
+
+.miniNeon:hover {
+    transition-delay: 0s !important;
+    
 }
 
 

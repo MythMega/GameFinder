@@ -12,6 +12,24 @@ body {
     background-position: 0% 75%;
 }
 
+.blurUnder {
+    -webkit-filter: blur(10px);
+}
+
+.choiceCard {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 10px;
+    padding-bottom: 15px;
+    box-shadow: 0 0 10px #000000, 0 0 40px #000000, 0 0 80px #000000;
+
+}
+.choiceCard * {
+    color: wheat;
+}
 .itemCard {
     background-color: rgba(250, 235, 215, 0.7);
     border-width: 1px;
@@ -105,6 +123,10 @@ body {
     margin-bottom: 10vh;
 }
 
+button {
+    border : none !important;
+}
+
 /*********************************/
 /***********Button Neon***********/
 /*********************************/
@@ -133,9 +155,29 @@ body {
     padding: 10px 20px !important;
     letter-spacing: 3px !important;
     font-size: 18px !important;
+    border: solid 1px #ff644d !important;
+    box-shadow: 0 0 0px #00000000 !important;
+    background-color: #00000096 !important;
+    
+}
+
+.contentFitter {
+    display: inline-block;
 }
 
 .miniNeon:hover {
+    transition-delay: 0s !important;
+    border: solid 1px #ffffff !important;
+    
+}
+
+.microNeon {
+    padding: 7px 14px !important;
+    letter-spacing: 2px !important;
+    font-size: 10px !important;
+}
+
+.microNeon:hover {
     transition-delay: 0s !important;
     
 }
@@ -143,7 +185,7 @@ body {
 
 
 .neonButton:hover {
-    color: #f9464a;
+    color: #ffffff;
     background: #ff644d;
     box-shadow: 0 0 10px #ff644d, 0 0 40px #ff644d, 0 0 80px #ff644d;
     transition-delay: 1s;

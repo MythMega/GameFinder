@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="itemCard">
+                <div class="choiceCard">
                     <h2>Free</h2>
                     <input type="radio" name="free" id="freeNC" value="freeNC" checked>
                     <label for="freeNC">No care</label><br>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="itemCard">
+                <div class="choiceCard">
                     <h2>Online</h2>
                     <input type="radio" name="online" id="onlineNC" value="onlineNC" checked>
                     <label for="onlineNC">No care</label><br>
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="itemCard">
+                <div class="choiceCard">
                     <h2>Coop</h2>
                     <input type="radio" name="coop" id="coopNC" value="coopNC" checked>
                     <label for="coopNC">No care</label><br>
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="itemCard">
+                <div class="choiceCard">
                     <h2>Independant</h2>
                     <input type="radio" name="inde" id="indeNC" value="indeNC" checked>
                     <label for="indeNC">No care</label><br>
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="itemCard">
+                <div class="choiceCard">
                     <h2>Release</h2>
                     <input type="radio" name="release" id="releaseNC" value="releaseNC" checked>
                     <label for="releaseNC">No care</label><br>
@@ -70,12 +70,14 @@
                     <label for="releaseE">After 2020 </label><br>
                 </div>
             </div>
-            <button class="neonButton miniNeon" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="additionalTag">See / Hide all additional filters</button>
+            <div class="contentFitter"><center>
+                <button class="neonButton miniNeon" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="additionalTag">See / Hide all additional filters</button>
+            </center></div>
             </div>
             <div class="row">
             {% for tag in tags%}
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 collapse multi-collapse">
-                <div class="itemCard collapse multi-collapse" id="additionalTag">
+                <div class="choiceCard collapse multi-collapse" id="additionalTag">
                     <h2>{{tag.name}}</h2>
                     <input type="radio" name="{{tag.getStringTagLower}}" id="{{tag.getStringTagLower}}NC" value="{{tag.getStringTagLower}}NC" checked>
                     <label for="{{tag.getStringTagLower}}NC">No care</label><br>

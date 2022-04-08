@@ -4,58 +4,103 @@
 {% block titre %}Roll{% endblock %}
 
 {% block contenu %}
-<div class="dropper20"></div>
-<div class="container">
-    <div class="row">
-        <div class="itemCard col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <h2>Free</h2>
-            <input type="radio" name="free" id="freeNC" value="freeNC" checked>
-            <label for="freeNC">No care</label><br>
-            <input type="radio" name="free" id="freeYes" value="freeYes">
-            <label for="freeYes">Yes</label><br>
-            <input type="radio" name="free" id="freeNo" value="freeNo">
-            <label for="freeNo">No</label><br>
-        </div>
-        <div class="itemCard col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <h2>Online</h2>
-            <input type="radio" name="online" id="onlineNC" value="onlineNC" checked>
-            <label for="onlineNC">No care</label><br>
-            <input type="radio" name="online" id="onlineYes" value="onlineYes">
-            <label for="onlineYes">Yes</label><br>
-            <input type="radio" name="online" id="onlineNo" value="onlineNo">
-            <label for="onlineNo">No</label><br>
-        </div>
-        <div class="itemCard col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <h2>Coop</h2>
-            <input type="radio" name="coop" id="coopNC" value="coopNC" checked>
-            <label for="coopNC">No care</label><br>
-            <input type="radio" name="coop" id="coopYes" value="coopYes">
-            <label for="coopYes">Yes</label><br>
-            <input type="radio" name="coop" id="coopNo" value="coopNo">
-            <label for="coopNo">No</label><br>
-        </div> 
-        <div class="itemCard col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <h2>Independant</h2>
-            <input type="radio" name="inde" id="indeNC" value="indeNC" checked>
-            <label for="indeNC">No care</label><br>
-            <input type="radio" name="inde" id="indeYes" value="indeYes">
-            <label for="indeYes">Yes</label><br>
-            <input type="radio" name="inde" id="indeNo" value="indeNo">
-            <label for="indeNo">No</label><br>
-        </div> 
-
-        <center>
-            <div class="dropper20"></div>
-            <div class="superFocus">
-            <a href="{% url 'finder:rollResult' 1 %}" class="neonButton">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                ROLL
-            </a>
+<div class="dropper10"></div>
+<form action="{% url 'finder:rollResult' 0 %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="itemCard">
+                    <h2>Free</h2>
+                    <input type="radio" name="free" id="freeNC" value="freeNC" checked>
+                    <label for="freeNC">No care</label><br>
+                    <input type="radio" name="free" id="freeYes" value="freeYes">
+                    <label for="freeYes">Yes</label><br>
+                    <input type="radio" name="free" id="freeNo" value="freeNo">
+                    <label for="freeNo">No</label><br>
+                </div>
             </div>
-        </center>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="itemCard">
+                    <h2>Online</h2>
+                    <input type="radio" name="online" id="onlineNC" value="onlineNC" checked>
+                    <label for="onlineNC">No care</label><br>
+                    <input type="radio" name="online" id="onlineYes" value="onlineYes">
+                    <label for="onlineYes">Yes</label><br>
+                    <input type="radio" name="online" id="onlineNo" value="onlineNo">
+                    <label for="onlineNo">No</label><br>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="itemCard">
+                    <h2>Coop</h2>
+                    <input type="radio" name="coop" id="coopNC" value="coopNC" checked>
+                    <label for="coopNC">No care</label><br>
+                    <input type="radio" name="coop" id="coopYes" value="coopYes">
+                    <label for="coopYes">Yes</label><br>
+                    <input type="radio" name="coop" id="coopNo" value="coopNo">
+                    <label for="coopNo">No</label><br>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="itemCard">
+                    <h2>Independant</h2>
+                    <input type="radio" name="inde" id="indeNC" value="indeNC" checked>
+                    <label for="indeNC">No care</label><br>
+                    <input type="radio" name="inde" id="indeYes" value="indeYes">
+                    <label for="indeYes">Yes</label><br>
+                    <input type="radio" name="inde" id="indeNo" value="indeNo">
+                    <label for="indeNo">No</label><br>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="itemCard">
+                    <h2>Release</h2>
+                    <input type="radio" name="release" id="releaseNC" value="releaseNC" checked>
+                    <label for="releaseNC">No care</label><br>
+                    <input type="radio" name="release" id="releaseA" value="releaseA">
+                    <label for="releaseA">Before 1990 </label><br>
+                    <input type="radio" name="release" id="releaseB" value="releaseB">
+                    <label for="releaseB">between 1990 & 2000 </label><br>
+                    <input type="radio" name="release" id="releaseC" value="releaseC">
+                    <label for="releaseC">between 2000 & 2010 </label><br>
+                    <input type="radio" name="release" id="releaseD" value="releaseD">
+                    <label for="releaseD">between 2010 & 2020 </label><br>
+                    <input type="radio" name="release" id="releaseE" value="releaseE">
+                    <label for="releaseE">After 2020 </label><br>
+                </div>
+            </div>
+            <button class="neonButton miniNeon" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="additionalTag">See / Hide all additional filters</button>
+            </div>
+            <div class="row">
+            {% for tag in tags%}
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 collapse multi-collapse">
+                <div class="itemCard collapse multi-collapse" id="additionalTag">
+                    <h2>{{tag.name}}</h2>
+                    <input type="radio" name="{{tag.getStringTagLower}}" id="{{tag.getStringTagLower}}NC" value="{{tag.getStringTagLower}}NC" checked>
+                    <label for="{{tag.getStringTagLower}}NC">No care</label><br>
+                    <input type="radio" name="{{tag.getStringTagLower}}" id="{{tag.getStringTagLower}}Yes" value="{{tag.getStringTagLower}}Yes">
+                    <label for="{{tag.getStringTagLower}}Yes">Yes</label><br>
+                    <input type="radio" name="{{tag.getStringTagLower}}" id="{{tag.getStringTagLower}}No" value="{{tag.getStringTagLower}}No">
+                    <label for="{{tag.getStringTagLower}}No">No</label><br>
+                </div>
+            </div>
+            {% endfor %}
+            
+
+            <center>
+                <div class="dropper10"></div>
+                <div class="superFocus">
+                    <button class="neonButton" type="submit">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    ROLL
+                </button>
+                </div>
+                <div class="upper10"></div>
+            </center>
+        </div>
     </div>
-</div>
+</form>
 {% endblock %}

@@ -65,6 +65,12 @@ class Tag(models.Model):
     picture = models.ImageField(upload_to='finder/static/finder/img/tag/',null=True, blank=True)
     description = models.TextField(null=True, blank=True)
 
+    def getStringTagLower(self) -> str:
+        return str(self.libelle).lower()
+
+    def name(self) -> str:
+        return str(self.libelle).capitalize()
+
     def __str__(self) -> str:
         return self.libelle
 

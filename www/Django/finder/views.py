@@ -1,4 +1,5 @@
 from re import template
+from webbrowser import get
 from django.http import Http404, HttpResponse
 from django.test import tag
 from .models import *
@@ -18,8 +19,98 @@ def roll(request):
     template = loader.get_template('finder/roll.html')
     return HttpResponse(template.render(data, request))
 
-def rollResult(request):
-    data = {}
+def reroll(request, filtered):
+    data = {'gameList': filtered}
+    template = loader.get_template('finder/rollresults.html')
+    return HttpResponse(template.render(data, request))
+
+def rollResult(request, game_id):
+    if game_id == 0:
+        allGameList = Game.objects.all()
+        valuePrice = str(request.POST['free'])
+        valueOnline = str(request.POST['online'])
+        valueCoop = str(request.POST['coop'])
+        valueInde = str(request.POST['inde'])
+        valueRelease = str(request.POST['release'])
+        
+        #check Price
+        if valuePrice == "freeYes":
+            allGameList = allGameList.filter(isFree=True)
+        elif valuePrice == "freeNo":
+            allGameList = allGameList.filter(isFree=False)
+        
+        ##check Online
+        if valueOnline == "onlineYes":
+            allGameList = allGameList.filter(isOnline=True)
+        elif valueOnline == "onlineYes":
+            allGameList = allGameList.filter(isOnline=False)
+
+        ##check Coop
+        if valueCoop == "coopYes":
+            allGameList = allGameList.filter(isCoop=True)
+        elif valueCoop == "coopNo":
+            allGameList = allGameList.filter(isCoop=False)
+
+        #check Inde
+        if valueInde == "indeYes":
+            allGameList = allGameList.filter(isInde=True)
+        elif valueInde == "indeNo":
+            allGameList = allGameList.filter(isInde=False)
+
+        #check Release
+        start = "1900-01-01"
+        end = "2999-12-31"
+        if valueRelease == "releaseA":
+            start = "1900-01-01"
+            end = "1989-12-31"
+        elif valueRelease == "releaseB":
+            start = "1900-01-01"
+            end = "1999-12-31"
+        elif valueRelease == "releaseC":
+            start = "2000-01-01"
+            end = "2009-12-31"
+        elif valueRelease == "releaseD":
+            start = "2010-01-01"
+            end = "2019-12-31"
+        elif valueRelease == "releaseE":
+            start = "2020-01-01"
+            end = "2999-12-31"
+        allGameList = allGameList.filter(release_date__range=[start,end])
+
+        allTagWanted = []
+        allTagUnwanted = []
+        stringTagDebug = ""
+        for t in Tag.objects.all():
+            if request.POST[f'{t.getStringTagLower()}'] == f"{t.getStringTagLower()}Yes":
+                allTagWanted.append(t)
+                stringTagDebug += f"{t.getStringTagLower()}Yes--"
+            elif request.POST[f'{t.getStringTagLower()}'] == f"{t.getStringTagLower()}No":
+                allTagUnwanted.append(t)
+                stringTagDebug += f"{t.getStringTagLower()}No--"
+
+
+        monResultat = []
+        maListeDeTagQueJeVeuxOuQueJeVeuxPas = allTagWanted + allTagUnwanted
+        for unJeu in allGameList:
+            ok = True
+            for unTag in maListeDeTagQueJeVeuxOuQueJeVeuxPas:
+                try :
+                    unJeu.tag.get(libelle=unTag.libelle)
+                except Tag.DoesNotExist:
+                    if unTag in allTagWanted:
+                        ok =False
+                else:
+                    if unTag in allTagUnwanted:
+                        ok= False    
+            if ok:
+                monResultat.append(unJeu)
+            
+
+    else:
+        data = {'errorMessage': "An error has occured"}
+        template = loader.get_template('finder/error404.html')
+        return HttpResponse(template.render(data, request))
+    data = {'items': monResultat, 'prix':valuePrice, 'coop':valueCoop, 'inde':valueInde, 'date':valueRelease, 'online':valueOnline, 'debugTag':stringTagDebug}
     template = loader.get_template('finder/rollresult.html')
     return HttpResponse(template.render(data, request))
 

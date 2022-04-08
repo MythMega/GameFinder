@@ -265,6 +265,13 @@ class Game(models.Model):
         resultat += "..."
         return resultat
 
+    def isInde(self) -> str:
+        if self.editor == None:
+            return True
+        else:
+            return False
+
+
     def __str__(self) -> str:
         return f"[{self.release_date.year}] {self.name}"
 

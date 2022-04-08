@@ -73,6 +73,22 @@ body {
     box-shadow:0 0 30px 50px rgba(0,0,0,0.50), 0 0 60px 100px rgba(0,0,0,0.40), 0 0 200px 250px rgba(0,0,0,0.30), 0 0 400px 500px rgba(0,0,0,0.20), 0 0 600px 750px rgba(0,0,0,0.10);
 }
 
+._debug {
+    background-color: rgba(255, 255, 0, 0.432);
+    padding: 10px;
+    margin: 10px;
+}
+
+._debug p {
+    color: #000000;
+    background-color: aliceblue;
+}
+
+._debug p span{
+    color: #ffffff;
+    background-color: rgb(255, 0, 0);
+}
+
 .dropper20{
     margin-top: 20vh;
 }

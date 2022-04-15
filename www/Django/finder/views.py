@@ -22,13 +22,18 @@ def roll(request):
 
 def reroll(request):
     liste = request.POST['liste']
-    listsplit = liste.split(";")
-    idGame = random.choice(listsplit)
-    listsplit.remove(idGame)
-    item = Game.objects.get(pk=idGame)
-    liste = ""
-    for i in listsplit:
-        liste += i + ";"
+
+    if not len(liste) < 2:
+        listsplit = liste.split(";")
+        idGame = random.choice(listsplit)
+        listsplit.remove(idGame)
+        item = Game.objects.get(pk=int(idGame))
+        liste = ""
+        for i in listsplit:
+            liste += i + ";"
+    else:
+        liste = " "
+        item = None
     data = {'liste':liste[:-1], 'item':item}
     template = loader.get_template('finder/rollresult.html')
     return HttpResponse(template.render(data, request))

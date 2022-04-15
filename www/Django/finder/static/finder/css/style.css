@@ -17,6 +17,12 @@ body {
     background-color: #0000009c;
 }
 
+#searchBtn {
+    margin-right: 1px;
+    width: 10em;
+}
+
+
 .choiceCard {
     background-color: rgba(0, 0, 0, 0.5);
     border: none;

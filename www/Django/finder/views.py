@@ -1,8 +1,4 @@
-from re import template
-from secrets import choice
-from webbrowser import get
 from django.http import Http404, HttpResponse
-from django.test import tag
 from .models import *
 from django.template import loader
 import random
@@ -23,7 +19,7 @@ def roll(request):
 def reroll(request):
     liste = request.POST['liste']
 
-    if not len(liste) < 2:
+    if not len(liste) < 1:
         listsplit = liste.split(";")
         idGame = random.choice(listsplit)
         listsplit.remove(idGame)
@@ -125,6 +121,9 @@ def rollResult(request, game_id):
         template = loader.get_template('finder/error404.html')
         return HttpResponse(template.render(data, request))
     #data = {'items': monResultat, 'prix':valuePrice, 'coop':valueCoop, 'inde':valueInde, 'date':valueRelease, 'online':valueOnline, 'debugTag':stringTagDebug}
+    if len(monResultat) < 1:
+        template = loader.get_template('finder/noluck.html')
+        return HttpResponse(template.render({}, request))
     selected = random.choice(monResultat)
     futurResultat = monResultat.remove(selected)
     futurResultatStringIds = ""

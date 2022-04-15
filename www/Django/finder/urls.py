@@ -25,5 +25,5 @@ urlpatterns = [
     path('search/', views.research, name='search'),
     path('roll/', views.roll, name='roll'),
     path('roll/<int:game_id>/', views.rollResult, name='rollResult'),
-    path('reroll/<str:filtered>', views.reroll, name='reroll'),
+    path('reroll/', views.reroll, name='reroll'),
 ]

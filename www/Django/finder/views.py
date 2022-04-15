@@ -19,9 +19,10 @@ def roll(request):
     template = loader.get_template('finder/roll.html')
     return HttpResponse(template.render(data, request))
 
-def reroll(request, filtered):
-    data = {'gameList': filtered}
-    template = loader.get_template('finder/rollresults.html')
+def reroll(request):
+    liste = request.POST['liste']
+    data = {'liste':liste}
+    template = loader.get_template('finder/rollresult.html')
     return HttpResponse(template.render(data, request))
 
 def rollResult(request, game_id):
@@ -110,7 +111,14 @@ def rollResult(request, game_id):
         data = {'errorMessage': "An error has occured"}
         template = loader.get_template('finder/error404.html')
         return HttpResponse(template.render(data, request))
-    data = {'items': monResultat, 'prix':valuePrice, 'coop':valueCoop, 'inde':valueInde, 'date':valueRelease, 'online':valueOnline, 'debugTag':stringTagDebug}
+    #data = {'items': monResultat, 'prix':valuePrice, 'coop':valueCoop, 'inde':valueInde, 'date':valueRelease, 'online':valueOnline, 'debugTag':stringTagDebug}
+    selected = random.choice(monResultat)
+    futurResultat = monResultat.remove(selected)
+    futurResultatStringIds = ""
+    random.shuffle(monResultat)
+    for i in monResultat:
+        futurResultatStringIds += str(i.id) + ";"
+    data = {'item': selected, 'liste' : futurResultatStringIds[:-1]}
     template = loader.get_template('finder/rollresult.html')
     return HttpResponse(template.render(data, request))
 

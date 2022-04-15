@@ -1,4 +1,5 @@
 from re import template
+from secrets import choice
 from webbrowser import get
 from django.http import Http404, HttpResponse
 from django.test import tag
@@ -21,7 +22,14 @@ def roll(request):
 
 def reroll(request):
     liste = request.POST['liste']
-    data = {'liste':liste}
+    listsplit = liste.split(";")
+    idGame = random.choice(listsplit)
+    listsplit.remove(idGame)
+    item = Game.objects.get(pk=idGame)
+    liste = ""
+    for i in listsplit:
+        liste += i + ";"
+    data = {'liste':liste[:-1], 'item':item}
     template = loader.get_template('finder/rollresult.html')
     return HttpResponse(template.render(data, request))
 

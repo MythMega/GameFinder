@@ -12,9 +12,20 @@ body {
     background-position: 0% 75%;
 }
 
+.footer {
+    background-color: #000000d8;
+    position:fixed;
+    width: 100vw;
+    bottom:0;
+}
+
+.footer * {
+    color: white;
+}
+
 .blurUnder {
     -webkit-filter: blur(10px);
-    background-color: #0000009c;
+    background-color: #000000ef;
 }
 
 #searchBtn {

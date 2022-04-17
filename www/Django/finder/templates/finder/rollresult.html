@@ -7,7 +7,6 @@ RollResult
 {% block contenu %}
   {% if item %}
   <div class="container itemCard">
-    <img src="{% static item.getBannerLink %}" alt="" class="imgBanner">
     <div class="row">
         <div class="col-2">                                
         </div>
@@ -46,25 +45,33 @@ RollResult
         <div class="col-2">                                
         </div>
     </div>
-    <div class="">
-        <center><a href="{{ item.url }}"><button type="button" class="btn btn-warning btnEnd">Get it !</button></a></center>
+    <div class="row">
+        <center>
+            <a href="{{ item.url }}" class="neonButton miniNeon">Get it !</a>
+            <a href="{% url 'finder:detailGame' item.id %}" class="neonButton miniNeon">More info</a>
+        </center>
     </div>
-    <br><br><br>
-    <img src="{% static item.getGameplayLink %}" alt="" class="imgFoot">
+    <div class="row">
+        <center>
+            <form action="{% url 'finder:reroll' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="liste" id="liste" value="{{liste}}">
+                <input type="submit" value="RE-ROLL" class="neonButton miniNeon" text="RE-ROLL">
+              </form>
+        </center>
+    </div>
   </div>
 
-  <p><span>autre resultats : </span>{{liste}}</p>
-<br><br>
-<form action="{% url 'finder:reroll' %}" method="post">
-  {% csrf_token %}
-  <input type="hidden" name="liste" id="liste" value="{{liste}}">
-  <input type="submit" value="submit">
-</form>
+  {% comment %} <p><span>autre resultats : </span>{{liste}}</p> {% endcomment %}
+
 <br><br>
 {% else %}
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<center>
+    <h1>FINITO</h1>
+    <a href="{% url 'finder:roll' %}"><button class="neonButton miniNeon">Return to hub</button></a>
+</center>
 
-<h1>FINITO</h1>
-<a href="{% url 'finder:roll' %}"><button class="neonButton miniNeon">Return to hub</button></a>
 {% endif %}
 
 <!-- <div class="_debug">

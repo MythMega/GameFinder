@@ -49,6 +49,9 @@ class Licence(models.Model):
         resultat += "..."
         return resultat
     
+    def getDesc(self) -> str:
+        return self.description
+    
     def getPreInfos(self):
         if len(self.listeDejeu()) < 1: return ""
         elif len(self.listeDejeu()) < 2: return f"Contain only {self.listeDejeu()[0].name}."

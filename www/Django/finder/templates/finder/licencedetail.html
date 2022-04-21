@@ -5,5 +5,41 @@ Licences
 {% endblock %}
 
 {% block contenu %}
-<!-- html content code -->
+<div class="container itemCard">
+    <div class="row">
+        <div class="col-2">                                
+        </div>
+        <div class="col-8">
+            <div class="itemCard">
+                <h2>{{ item.name }}</h2>
+                <hr class="solid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{% static item.getPictureLink %}" alt="" class="img-fluid" width="200" height="200">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-12">
+                            <span>{{ item.getDesc }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>                               
+        </div>
+        <div class="col-2">                                
+        </div>
+    </div>
+    <div class="">
+        <center><a href="{{ item.url }}"><button type="button" class="btn btn-warning btnEnd">Get it !</button></a></center>
+    </div>
+    <br><br><br>
+</div>
 {% endblock %}

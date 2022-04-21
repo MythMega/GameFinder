@@ -20,11 +20,11 @@ Game
                                 <img src="{% static item.getPictureLink %}" alt="" class="img-fluid" width="200" height="200">
                             </div>
                             <div class="col-6">
-                                <span>{%if item.licence.all%}License(s) :{%else%}No license{%endif%}{% for l in item.licence.all %} {{l.name}};{%endfor%}</span><br>
-                                <span>{%if item.developer.all%}Dev(s) :{%else%}Unknown dev{%endif%}{% for d in item.developer.all %} {{d.name}};{%endfor%}</span><br>
-                                <span>{%if item.editor.all%}Editors(s) :{%else%}No Editors{%endif%}{% for e in item.editor.all %} {{e.name}};{%endfor%}</span><br>
-                                <span>{%if item.platform.all%}Platform(s) :{%else%}No Platform ?????{%endif%}{% for p in item.platform.all %} {{p.name}};{%endfor%}</span><br>
-                                <span>{%if item.tag.all%}Tags(s) :{%else%}No Tag{%endif%}{% for t in item.tag.all %} {{t.libelle}};{%endfor%}</span><br>
+                                <span>{%if item.licence.all%}License(s) :{%else%}No license{%endif%}{% for l in item.licence.all %} <a href="{% url 'finder:detailLicence' l.id %}">{{l.name}}</a> ;{%endfor%}</span><br>
+                            <span>{%if item.developer.all%}Dev(s) :{%else%}Unknown dev{%endif%}{% for d in item.developer.all %} <a href="{% url 'finder:detailDev' d.id %}">{{d.name}}</a>;{%endfor%}</span><br>
+                                <span>{%if item.editor.all%}Editors(s) :{%else%}No Editors{%endif%}{% for e in item.editor.all %} <a href="{% url 'finder:detailEditor' e.id %}">{{e.name}}</a>;{%endfor%}</span><br>
+                                <span>{%if item.platform.all%}Platform(s) :{%else%}No Platform ?????{%endif%}{% for p in item.platform.all %} <a href="{% url 'finder:detailPlatform' p.id %}">{{p.name}}</a>;{%endfor%}</span><br>
+                                <span>{%if item.tag.all%}Tags(s) :{%else%}No Tag{%endif%}{% for t in item.tag.all %} <a href="{% url 'finder:detailTag' t.id %}">{{t.libelle}}</a>;{%endfor%}</span><br>
                             </div>
                         </div>
                         <br><br>

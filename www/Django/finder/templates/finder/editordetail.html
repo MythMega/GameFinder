@@ -5,5 +5,64 @@ Editor
 {% endblock %}
 
 {% block contenu %}
-<!-- html content code -->
+<div class="container itemCard">
+    <div class="row">
+        <div class="col-2">                                
+        </div>
+        <div class="col-8">
+            <div class="itemCard">
+                <h2>{{ item.name }}</h2>
+                <hr class="solid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{% static item.getPictureLink %}" alt="" class="img-fluid" width="200" height="200">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-12">
+                            <span><p>{{ item.getDesc }}</p></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>                               
+        </div>
+        <div class="col-2">                                
+        </div>
+    </div>
+</div>
+<h1>that include games :</h1>
+{%for element in item.listeDejeu%}
+<div class="row">
+    <div class="col-2">
+    </div>
+    <div class="col-8">
+        <div class="itemCard">
+            <h2>{{ element.name }}</h2>
+                <hr class="solid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{% static element.getPictureLink %}" alt="" class="img-fluid" width="200" height="200">
+                            
+                        </div>
+                        <div class="col-6">
+                            <span>{{ element.getShortDesc }}</span><br>
+                            <a href="{% url 'finder:detailGame' element.id %}"><button type="button" class="btn btn-warning">See more...</button></a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="col-2">
+    </div>
+</div><br><br><br>
+{%endfor%}
 {% endblock %}

@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 from datetime import date as d, datetime as dt 
 import random
+from PIL import Image
 
 class User(models.Model):
     username = models.CharField(max_length=32) #32 caractères
@@ -107,7 +108,6 @@ class Tag(models.Model):
 
     def listeDejeu(self):
         return self.game_set.all()
-    
 
 class Platform(models.Model):
     name = models.CharField(max_length=64)
@@ -314,4 +314,3 @@ class Submission(models.Model):
             return f"[Verified] {self.user} {self.game} {self.date_creation}"
         else:
             return f"[Unverified] {self.user} {self.game} {self.date_creation}"
-        

@@ -1,6 +1,10 @@
 {% extends "finder/template_page.html" %}
 {% load static %}
 
+{% block additionalCSS %}
+    <link rel="stylesheet" type="text/css" href="{% static 'finder/css/radio.css' %}">
+{% endblock %}
+
 {% block titre %}Roll{% endblock %}
 
 {% block contenu %}
@@ -11,51 +15,63 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="choiceCard">
-                    <h2>Free</h2>
-                    <input type="radio" name="free" id="freeNC" value="freeNC" checked>
-                    <label for="freeNC">No care</label><br>
-                    <input type="radio" name="free" id="freeYes" value="freeYes">
-                    <label for="freeYes">Yes</label><br>
-                    <input type="radio" name="free" id="freeNo" value="freeNo">
-                    <label for="freeNo">No</label><br>
+                    <h2>Free</h2><br>
+                    <div class="switch">
+                        <input type="radio" name="free" id="freeNC" value="freeNC" class="nc" checked>
+                        <label for="freeNC" class="switch__label lblnc">NC</label>
+                        <input type="radio" name="free" id="freeYes" value="freeYes" class="yes">
+                        <label for="freeYes" class="switch__label lblyes">Yes</label>
+                        <input type="radio" name="free" id="freeNo" value="freeNo" class="no">
+                        <label for="freeNo" class="switch__label lblno">No</label>
+                        <div class="switch__indicator" /></div>
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="choiceCard">
-                    <h2>Online</h2>
-                    <input type="radio" name="online" id="onlineNC" value="onlineNC" checked>
-                    <label for="onlineNC">No care</label><br>
-                    <input type="radio" name="online" id="onlineYes" value="onlineYes">
-                    <label for="onlineYes">Yes</label><br>
-                    <input type="radio" name="online" id="onlineNo" value="onlineNo">
-                    <label for="onlineNo">No</label><br>
+                    <h2>Online</h2><br>
+                    <div class="switch">
+                    <input type="radio" name="online" id="onlineNC" value="onlineNC" class="nc" checked>
+                    <label for="onlineNC" class="switch__label lblnc">NC</label>
+                    <input type="radio" name="online" id="onlineYes" value="onlineYes" class="yes">
+                    <label for="onlineYes" class="switch__label lblyes">Yes</label>
+                    <input type="radio" name="online" id="onlineNo" value="onlineNo" class="no">
+                    <label for="onlineNo" class="switch__label lblno">No</label>
+                    <div class="switch__indicator" /></div>
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="choiceCard">
-                    <h2>Coop</h2>
-                    <input type="radio" name="coop" id="coopNC" value="coopNC" checked>
-                    <label for="coopNC">No care</label><br>
-                    <input type="radio" name="coop" id="coopYes" value="coopYes">
-                    <label for="coopYes">Yes</label><br>
-                    <input type="radio" name="coop" id="coopNo" value="coopNo">
-                    <label for="coopNo">No</label><br>
+                    <h2>Coop</h2><br>
+                    <div class="switch">
+                    <input type="radio" name="coop" id="coopNC" value="coopNC" class="nc" checked>
+                    <label for="coopNC" class="switch__label lblnc">NC</label>
+                    <input type="radio" name="coop" id="coopYes" value="coopYes" class="yes">
+                    <label for="coopYes" class="switch__label lblyes">Yes</label>
+                    <input type="radio" name="coop" id="coopNo" value="coopNo" class="no">
+                    <label for="coopNo" class="switch__label lblno">No</label>
+                    <div class="switch__indicator" /></div>
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="choiceCard">
-                    <h2>Independant</h2>
-                    <input type="radio" name="inde" id="indeNC" value="indeNC" checked>
-                    <label for="indeNC">No care</label><br>
-                    <input type="radio" name="inde" id="indeYes" value="indeYes">
-                    <label for="indeYes">Yes</label><br>
-                    <input type="radio" name="inde" id="indeNo" value="indeNo">
-                    <label for="indeNo">No</label><br>
+                    <h2>Independant</h2><br>
+                    <div class="switch">
+                    <input type="radio" name="inde" id="indeNC" value="indeNC" class="nc" checked>
+                    <label for="indeNC" class="switch__label lblnc">NC</label>
+                    <input type="radio" name="inde" id="indeYes" value="indeYes" class="yes">
+                    <label for="indeYes" class="switch__label lblyes">Yes</label>
+                    <input type="radio" name="inde" id="indeNo" value="indeNo" class="no">
+                    <label for="indeNo" class="switch__label lblno">No</label>
+                    <div class="switch__indicator" /></div>
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="choiceCard">
-                    <h2>Release</h2>
+                    <h2>Release</h2><br>
                     <input type="radio" name="release" id="releaseNC" value="releaseNC" checked>
                     <label for="releaseNC">No care</label><br>
                     <input type="radio" name="release" id="releaseA" value="releaseA">
@@ -78,13 +94,16 @@
             {% for tag in tags%}
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 collapse multi-collapse">
                 <div class="choiceCard collapse multi-collapse" id="additionalTag">
-                    <h2>{{tag.name}}</h2>
-                    <input type="radio" name="{{tag.getStringTagLower}}" id="{{tag.getStringTagLower}}NC" value="{{tag.getStringTagLower}}NC" checked>
-                    <label for="{{tag.getStringTagLower}}NC">No care</label><br>
-                    <input type="radio" name="{{tag.getStringTagLower}}" id="{{tag.getStringTagLower}}Yes" value="{{tag.getStringTagLower}}Yes">
-                    <label for="{{tag.getStringTagLower}}Yes">Yes</label><br>
-                    <input type="radio" name="{{tag.getStringTagLower}}" id="{{tag.getStringTagLower}}No" value="{{tag.getStringTagLower}}No">
-                    <label for="{{tag.getStringTagLower}}No">No</label><br>
+                    <h2>{{tag.name}}</h2><br>
+                    <div class="switch">
+                    <input type="radio" name="{{tag.getStringTagLower}}" id="{{tag.getStringTagLower}}NC" value="{{tag.getStringTagLower}}NC" class="nc" checked>
+                    <label for="{{tag.getStringTagLower}}NC" class="switch__label lblnc">NC</label>
+                    <input type="radio" name="{{tag.getStringTagLower}}" id="{{tag.getStringTagLower}}Yes" value="{{tag.getStringTagLower}}Yes" class="yes">
+                    <label for="{{tag.getStringTagLower}}Yes" class="switch__label lblyes">Yes</label>
+                    <input type="radio" name="{{tag.getStringTagLower}}" id="{{tag.getStringTagLower}}No" value="{{tag.getStringTagLower}}No" class="no">
+                    <label for="{{tag.getStringTagLower}}No" class="switch__label lblno">No</label>
+                    <div class="switch__indicator" /></div>
+                    </div>
                 </div>
             </div>
             {% endfor %}

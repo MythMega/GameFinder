@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-9a%i_1&zgupdd_8ieu5d4cjr-oh_9893+*br%h1(7x()g4yf@r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+	'192.168.1.2',
+	'localhost',
+	'gamefinder.com',
+	'gfinder.com'
+]
 
 
 # Application definition

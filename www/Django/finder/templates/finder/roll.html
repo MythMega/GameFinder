@@ -69,21 +69,24 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="choiceCard">
                     <h2>Release</h2><br>
-                    <input type="radio" name="release" id="releaseNC" value="releaseNC" checked>
-                    <label for="releaseNC">No care</label><br>
-                    <input type="radio" name="release" id="releaseA" value="releaseA">
-                    <label for="releaseA">Before 1990 </label><br>
-                    <input type="radio" name="release" id="releaseB" value="releaseB">
-                    <label for="releaseB">between 1990 & 2000 </label><br>
-                    <input type="radio" name="release" id="releaseC" value="releaseC">
-                    <label for="releaseC">between 2000 & 2010 </label><br>
-                    <input type="radio" name="release" id="releaseD" value="releaseD">
-                    <label for="releaseD">between 2010 & 2020 </label><br>
-                    <input type="radio" name="release" id="releaseE" value="releaseE">
-                    <label for="releaseE">After 2020 </label><br>
+                    <div class="superswitch">
+                        <input type="radio" name="release" id="releaseNC" value="releaseNC" class="nc" checked>
+                            <label for="releaseNC" class="superswitch__label lblnotlast">NC</label>
+                        <input type="radio" name="release" id="releaseA" value="releaseA" class="one">
+                            <label for="releaseA" class="superswitch__label lblnotlast">>90's </label>
+                        <input type="radio" name="release" id="releaseB" value="releaseB" class="two">
+                            <label for="releaseB" class="superswitch__label lblnotlast">90's</label>
+                        <input type="radio" name="release" id="releaseC" value="releaseC" class="three">
+                            <label for="releaseC" class="superswitch__label lblnotlast">00's</label>
+                        <input type="radio" name="release" id="releaseD" value="releaseD" class="four">
+                            <label for="releaseD" class="superswitch__label lblnotlast">10's</label>
+                        <input type="radio" name="release" id="releaseE" value="releaseE" class="five">
+                            <label for="releaseE" class="superswitch__label">20's</label>
+                    <div class="superswitch__indicator" /></div>
+                    </div>
                 </div>
             </div>
             <div class="contentFitter"><center>

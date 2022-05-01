@@ -89,6 +89,26 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="choiceCard">
+                    <h2>Platform</h2><br>
+                    <div class="platformswitch">
+                        <input type="radio" name="platform" id="platformNC" value="platformNC" class="nc" checked>
+                            <label for="platformNC" class="platformswitch__label lblnotlast"><img src="{% static 'finder/img/front/icons/all.png'%}" class="icon-platform" alt=""></label>
+                        <input type="radio" name="platform" id="platformA" value="platformA" class="one">
+                            <label for="platformA" class="platformswitch__label lblnotlast"><img src="{% static 'finder/img/front/icons/pc.png'%}" class="icon-platform" alt=""></label>
+                        <input type="radio" name="platform" id="platformB" value="platformB" class="two">
+                            <label for="platformB" class="platformswitch__label lblnotlast"><img src="{% static 'finder/img/front/icons/ps.png'%}" class="icon-platform" alt=""></label>
+                        <input type="radio" name="platform" id="platformC" value="platformC" class="three">
+                            <label for="platformC" class="platformswitch__label lblnotlast"><img src="{% static 'finder/img/front/icons/xbox.png'%}" class="icon-platform" alt=""></label>
+                        <input type="radio" name="platform" id="platformD" value="platformD" class="four">
+                            <label for="platformD" class="platformswitch__label lblnotlast"><img src="{% static 'finder/img/front/icons/nintendo.png'%}" class="icon-platform" alt=""></label>
+                        <input type="radio" name="platform" id="platformE" value="platformE" class="five">
+                            <label for="platformE" class="platformswitch__label"><img src="{% static 'finder/img/front/icons/smartphone.png'%}" class="icon-platform" alt=""></label>
+                    <div class="platformswitch__indicator" /></div>
+                    </div>
+                </div>
+            </div>
             <div class="contentFitter"><center>
                 <button class="neonButton miniNeon" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="additionalTag">See / Hide all additional filters</button>
             </center></div>
@@ -125,6 +145,16 @@
                 </div>
                 <div class="upper10"></div>
             </center>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="float-end"><button type="reset" class="neonButton miniNeon" type="button">RESET ALL</button></div>
+                    </div>
+                    <div class="col-6">
+                        <button type="" class="neonButton miniNeon" type="button">RANDOMIZE</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </form>

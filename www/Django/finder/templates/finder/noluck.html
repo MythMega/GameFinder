@@ -1,0 +1,10 @@
+{% extends "finder/template_page.html" %}
+{% load static %}
+{% block titre %}
+UNLUCKY !
+{% endblock %}
+
+{% block contenu %}
+<h1>UNLUCKY !</h1>
+<a href="{% url 'finder:roll' %}"><button class="neonButton miniNeon">Return to hub</button></a>
+{% endblock %}

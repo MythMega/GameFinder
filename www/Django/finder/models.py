@@ -116,7 +116,7 @@ class Platform(models.Model):
     description = models.TextField(null=True, blank=True)
 
     def __str__(self) -> str:
-        return self.name
+        return f"{self.id} {self.name}"
     
     def dataLine(self) -> str:
         return f"{self.name} {self.release_date}"

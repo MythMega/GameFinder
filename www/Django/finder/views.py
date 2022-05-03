@@ -3,7 +3,8 @@ from .models import *
 from django.template import loader
 import random
 
-#constante :
+#constantes globales :
+global plat_nin, plat_pc, plat_ps, plat_tel, plat_xbox
 plat_pc = [28,27,1]
 plat_tel = [10,11]
 plat_nin = [2,16,17,18,19,20,21,22,23,24,25,26]
@@ -40,6 +41,7 @@ def reroll(request):
     data = {'liste':liste[:-1], 'item':item}
     template = loader.get_template('finder/rollresult.html')
     return HttpResponse(template.render(data, request))
+	
 
 def rollResult(request, game_id):
     if game_id == 0:
@@ -49,6 +51,25 @@ def rollResult(request, game_id):
         valueCoop = str(request.POST['coop'])
         valueInde = str(request.POST['inde'])
         valueRelease = str(request.POST['release'])
+        valuePlatform = str(request.POST['platform'])
+        if valuePlatform == "nc":
+            platformFilterOn = False
+        else:
+            platformFilterOn = True
+            #code to get wantedPlatforms = [list of wanted platorms]
+            wantedPlatforms = []
+            if valuePlatform == "ps":
+                wantedPlatforms = plat_ps
+            elif valuePlatform == "pc":
+                wantedPlatforms = plat_pc
+            elif valuePlatform == "tel":
+                wantedPlatforms = plat_tel
+            elif valuePlatform == "xbox":
+                wantedPlatforms = plat_xbox
+            elif valuePlatform == "nintendo":
+                wantedPlatforms = plat_nin
+
+
         
         #check Price
         if valuePrice == "freeYes":
@@ -93,6 +114,20 @@ def rollResult(request, game_id):
             start = "2020-01-01"
             end = "2999-12-31"
         allGameList = allGameList.filter(release_date__range=[start,end])
+
+        newGameList = []
+        if platformFilterOn:
+            #checkPlatform
+            for i in allGameList:
+                willbeKeept = False
+                gameplats = i.platform.all()
+                for p in list(gameplats):
+                    if p.id in wantedPlatforms:
+                        willbeKeept = True
+                if willbeKeept:
+                    newGameList.append(i)
+        
+        allGameList = newGameList
 
         allTagWanted = []
         allTagUnwanted = []

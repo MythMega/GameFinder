@@ -52,9 +52,10 @@ def rollResult(request, game_id):
         valueInde = str(request.POST['inde'])
         valueRelease = str(request.POST['release'])
         valuePlatform = str(request.POST['platform'])
-        if valuePlatform == "nc":
-            platformFilterOn = False
-        else:
+        valueDifficulty = str(request.POST['difficulty'])
+        valueMature = str(request.POST['mature'])
+        platformFilterOn = False
+        if valuePlatform != "platformNC":
             platformFilterOn = True
             #code to get wantedPlatforms = [list of wanted platorms]
             wantedPlatforms = []
@@ -76,6 +77,18 @@ def rollResult(request, game_id):
             allGameList = allGameList.filter(isFree=True)
         elif valuePrice == "freeNo":
             allGameList = allGameList.filter(isFree=False)
+
+        #check Difficulty
+        if valueDifficulty == "difficultyYes":
+            allGameList = allGameList.filter(isHard=True)
+        elif valueDifficulty == "difficultyNo":
+            allGameList = allGameList.filter(isHard=False)
+        
+        #check isMature
+        if valueMature == "matureYes":
+            allGameList = allGameList.filter(isMature=True)
+        elif valueMature == "matureNo":
+            allGameList = allGameList.filter(isMature=False)
         
         ##check Online
         if valueOnline == "onlineYes":
@@ -119,15 +132,14 @@ def rollResult(request, game_id):
         if platformFilterOn:
             #checkPlatform
             for i in allGameList:
-                willbeKeept = False
+                willbeKeept = True
                 gameplats = i.platform.all()
                 for p in list(gameplats):
-                    if p.id in wantedPlatforms:
-                        willbeKeept = True
+                    if p.id not in wantedPlatforms:
+                        willbeKeept = False
                 if willbeKeept:
                     newGameList.append(i)
-        
-        allGameList = newGameList
+            allGameList = newGameList
 
         allTagWanted = []
         allTagUnwanted = []

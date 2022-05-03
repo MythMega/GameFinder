@@ -244,6 +244,8 @@ class Game(models.Model):
     isFinished = models.BooleanField(null=True, blank=True)
     isOnline = models.BooleanField(null=True, blank=True)
     isFree = models.BooleanField(null=True, blank=True)
+    isHard = models.BooleanField(null=True, blank=True)
+    isMature = models.BooleanField(null=True, blank=True)
     url = models.CharField(max_length=255 , null=True, blank=True)
     picture_icon = models.ImageField(upload_to='finder/static/finder/img/game/',null=True, blank=True)
     picture_banner = models.ImageField(upload_to='finder/static/finder/img/game/',null=True, blank=True)

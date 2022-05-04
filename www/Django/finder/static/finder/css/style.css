@@ -31,13 +31,15 @@ body {
 
 .choiceCard {
     background-color: rgba(0, 0, 0, 0.7);
-    border: none;
-    border-radius: 10px;
+    border: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: white;
     margin-top: 25px;
     margin-bottom: 25px;
     padding: 10px;
     padding-bottom: 15px;
-    box-shadow: 0 0 10px #000000, 0 0 40px #000000, 0 0 80px #000000;
+    box-shadow: 0 0 10px #ff644d, 0 0 40px #ff644d, 0 0 80px #000000, 0px 0px 3px #ff644d, inset 0px 0px 10px #ff644d;
 
 }
 .choiceCard * {

@@ -23,11 +23,6 @@ body {
     color: white;
 }
 
-.blurUnder {
-    -webkit-filter: blur(10px);
-    background-color: #000000ef;
-}
-
 #searchBtn {
     margin-right: 1px;
     width: 10em;

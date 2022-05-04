@@ -42,10 +42,10 @@
 }
 
 .switch__indicator {
-	width: 4rem;
-	height: 4rem;
+	width: 3rem;
+	height: 3rem;
 	position: absolute;
-	top: -.5rem;
+	top: -.01rem;
 	left: 0;
 	background: blue;
 	border-radius: 50%;
@@ -54,18 +54,25 @@
 }
 
 .switch input.nc:checked ~ .switch__indicator {
-	background: rgb(217,119,61);
+	background: rgb(255, 255, 255);
 	transform: translate3d(1.2rem, 0, 0);
+	/* box-shadow:inset 0px 0px 1rem rgb(217,119,61); */
+	box-shadow:0px 0px 30px rgb(217,119,61),0px 0px 20px rgb(217,119,61),0px 0px 12px rgb(217,119,61),0px 0px 7px rgb(217,119,61),0px 0px 2px rgb(217,119,61), inset 0px 0px 5px rgb(217,119,61);
 }
 
 .switch input.yes:checked ~ .switch__indicator {
-	background: rgb(56,50,86);
-	transform: translate3d(5.5rem, 0, 0);
+	background: rgb(255, 255, 255);
+	transform: translate3d(6.5rem, 0, 0);
+	/* box-shadow:inset 0px 0px 1rem rgb(56,50,86); */
+	/* box-shadow:0px 0px 10px rgb(56,50,86); */
+	box-shadow:0px 0px 30px rgb(56,50,86),0px 0px 20px rgb(56,50,86),0px 0px 12px rgb(56,50,86),0px 0px 7px rgb(56,50,86),0px 0px 2px rgb(56,50,86), inset 0px 0px 5px rgb(56,50,86);
 }
 
 .switch input.no:checked ~ .switch__indicator {
-	background: rgb(159,26,40);
-	transform: translate3d(10.6rem, 0, 0);
+	background: rgb(255, 255, 255);
+	transform: translate3d(12.2rem, 0, 0);
+	/* box-shadow:inset 0px 0px 1rem rgb(159,26,40); */
+	box-shadow:0px 0px 30px rgb(159,26,40),0px 0px 20px rgb(159,26,40),0px 0px 12px rgb(159,26,40),0px 0px 7px rgb(159,26,40),0px 0px 2px rgb(159,26,40), inset 0px 0px 5px rgb(159,26,40);
 }
 
 .switch input[type="radio"]:not(:checked), .switch input[type="radio"]:checked {
@@ -119,10 +126,10 @@ body {
 }
 
 .superswitch__indicator {
-	width: 4rem;
-	height: 4rem;
+	width: 3rem;
+	height: 3rem;
 	position: absolute;
-	top: -.5rem;
+	top: -.01rem;
 	left: 0;
 	background: blue;
 	border-radius: 50%;
@@ -131,33 +138,39 @@ body {
 }
 
 .superswitch input.nc:checked ~ .superswitch__indicator {
-	background: rgb(217,119,61);
+	background: rgb(255, 255, 255);
 	transform: translate3d(1.2rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(217,119,61),0px 0px 20px rgb(217,119,61),0px 0px 12px rgb(217,119,61),0px 0px 7px rgb(217,119,61),0px 0px 2px rgb(217,119,61), inset 0px 0px 5px rgb(217,119,61);
 }
 
 .superswitch input.one:checked ~ .superswitch__indicator {
-	background: rgb(75,50,50);
+	background: rgb(255, 255, 255);
 	transform: translate3d(5.7rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(75,50,50),0px 0px 20px rgb(75,50,50),0px 0px 12px rgb(75,50,50),0px 0px 7px rgb(75,50,50),0px 0px 2px rgb(75,50,50), inset 0px 0px 5px rgb(75,50,50);
 }
 
 .superswitch input.two:checked ~ .superswitch__indicator {
-	background: rgb(56,50,86);
+	background: rgb(255, 255, 255);
 	transform: translate3d(9.7rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(56,50,86),0px 0px 20px rgb(56,50,86),0px 0px 12px rgb(56,50,86),0px 0px 7px rgb(56,50,86),0px 0px 2px rgb(56,50,86), inset 0px 0px 5px rgb(56,50,86);
 }
 
 .superswitch input.three:checked ~ .superswitch__indicator {
-	background: rgb(58,33,56);
+	background: rgb(255, 255, 255);
 	transform: translate3d(13.7rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(58,33,56),0px 0px 20px rgb(58,33,56),0px 0px 12px rgb(58,33,56),0px 0px 7px rgb(58,33,56),0px 0px 2px rgb(58,33,56), inset 0px 0px 5px rgb(58,33,56);
 }
 
 .superswitch input.four:checked ~ .superswitch__indicator {
-	background: rgb(60,24,40);
+	background: rgb(255, 255, 255);
 	transform: translate3d(17.7rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(60,24,40),0px 0px 20px rgb(60,24,40),0px 0px 12px rgb(60,24,40),0px 0px 7px rgb(60,24,40),0px 0px 2px rgb(60,24,40), inset 0px 0px 5px rgb(60,24,40);
 }
 
 .superswitch input.five:checked ~ .superswitch__indicator {
-	background: rgb(159,26,40);
+	background: rgb(255, 255, 255);
 	transform: translate3d(22.7rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(159,26,40),0px 0px 20px rgb(159,26,40),0px 0px 12px rgb(159,26,40),0px 0px 7px rgb(159,26,40),0px 0px 2px rgb(159,26,40), inset 0px 0px 5px rgb(159,26,40);
 }
 
 .superswitch input[type="radio"]:not(:checked), .superswitch input[type="radio"]:checked {
@@ -211,10 +224,10 @@ body {
 }
 
 .platformswitch__indicator {
-	width: 4rem;
-	height: 4rem;
+	width: 3rem;
+	height: 3rem;
 	position: absolute;
-	top: -.5rem;
+	top: -.01rem;
 	left: 0;
 	background: blue;
 	border-radius: 50%;
@@ -223,33 +236,39 @@ body {
 }
 
 .platformswitch input.nc:checked ~ .platformswitch__indicator {
-	background: rgb(217,119,61);
+	background: rgb(255, 255, 255);
 	transform: translate3d(1.2rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(217,119,61),0px 0px 20px rgb(217,119,61),0px 0px 12px rgb(217,119,61),0px 0px 7px rgb(217,119,61),0px 0px 2px rgb(217,119,61), inset 0px 0px 5px rgb(217,119,61);
 }
 
 .platformswitch input.one:checked ~ .platformswitch__indicator {
-	background: rgb(75,50,50);
+	background: rgb(255, 255, 255);
 	transform: translate3d(5.7rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(75,50,50),0px 0px 20px rgb(75,50,50),0px 0px 12px rgb(75,50,50),0px 0px 7px rgb(75,50,50),0px 0px 2px rgb(75,50,50), inset 0px 0px 5px rgb(75,50,50);
 }
 
 .platformswitch input.two:checked ~ .platformswitch__indicator {
-	background: rgb(56,50,86);
+	background: rgb(255, 255, 255);
 	transform: translate3d(9.7rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(56,50,86),0px 0px 20px rgb(56,50,86),0px 0px 12px rgb(56,50,86),0px 0px 7px rgb(56,50,86),0px 0px 2px rgb(56,50,86), inset 0px 0px 5px rgb(56,50,86);
 }
 
 .platformswitch input.three:checked ~ .platformswitch__indicator {
-	background: rgb(58,33,56);
+	background: rgb(255, 255, 255);
 	transform: translate3d(13.7rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(58,33,56),0px 0px 20px rgb(58,33,56),0px 0px 12px rgb(58,33,56),0px 0px 7px rgb(58,33,56),0px 0px 2px rgb(58,33,56), inset 0px 0px 5px rgb(58,33,56);
 }
 
 .platformswitch input.four:checked ~ .platformswitch__indicator {
-	background: rgb(60,24,40);
-	transform: translate3d(18.0rem, 0, 0);
+	background: rgb(255, 255, 255);
+	transform: translate3d(17.7rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(60,24,40),0px 0px 20px rgb(60,24,40),0px 0px 12px rgb(60,24,40),0px 0px 7px rgb(60,24,40),0px 0px 2px rgb(60,24,40), inset 0px 0px 5px rgb(60,24,40);
 }
 
 .platformswitch input.five:checked ~ .platformswitch__indicator {
-	background: rgb(159,26,40);
+	background: rgb(255, 255, 255);
 	transform: translate3d(22.7rem, 0, 0);
+	box-shadow:0px 0px 30px rgb(159,26,40),0px 0px 20px rgb(159,26,40),0px 0px 12px rgb(159,26,40),0px 0px 7px rgb(159,26,40),0px 0px 2px rgb(159,26,40), inset 0px 0px 5px rgb(159,26,40);
 }
 
 .platformswitch input[type="radio"]:not(:checked), .platformswitch input[type="radio"]:checked {

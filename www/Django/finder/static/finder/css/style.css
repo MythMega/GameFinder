@@ -35,7 +35,7 @@ body {
 
 
 .choiceCard {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     border: none;
     border-radius: 10px;
     margin-top: 25px;
@@ -48,6 +48,14 @@ body {
 .choiceCard * {
     color: wheat;
 }
+
+.choiceCard h2 {
+    color: white;
+    text-align: center;
+    margin-right: auto;
+    text-shadow:0px 0px 15px white;
+}
+
 .itemCard {
     background-color: rgba(250, 235, 215, 0.7);
     border-width: 1px;

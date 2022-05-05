@@ -1,5 +1,6 @@
 h1 {
-    color: rgb(5, 200, 5);
+    color: rgb(255, 255, 255);
+    text-shadow:0px 0px 15px #ff644d,0px 0px 25px #ff644d,0px 0px 35px #ff644d,0px 0px 50px #ff644d,0px 0px 75px #ff644d;
 }
 
 h2 {

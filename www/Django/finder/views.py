@@ -102,12 +102,6 @@ def rollResult(request, game_id):
         elif valueCoop == "coopNo":
             allGameList = allGameList.filter(isCoop=False)
 
-        #check Inde
-        if valueInde == "indeYes":
-            allGameList = allGameList.filter(isInde=True)
-        elif valueInde == "indeNo":
-            allGameList = allGameList.filter(isInde=False)
-
         #check Release
         start = "1900-01-01"
         end = "2999-12-31"
@@ -127,6 +121,14 @@ def rollResult(request, game_id):
             start = "2020-01-01"
             end = "2999-12-31"
         allGameList = allGameList.filter(release_date__range=[start,end])
+
+        #check Inde
+        # this code don't work at all -> isInde is a method, not an attribute !
+        # if valueInde == "indeYes":
+        #     allGameList = allGameList.filter(isInde=True)
+        # elif valueInde == "indeNo":
+        #     allGameList = allGameList.filter(isInde=False)
+
 
         newGameList = []
         if platformFilterOn:
@@ -151,6 +153,7 @@ def rollResult(request, game_id):
             elif request.POST[f'{t.getStringTagLower()}'] == f"{t.getStringTagLower()}No":
                 allTagUnwanted.append(t)
                 stringTagDebug += f"{t.getStringTagLower()}No--"
+
 
 
         monResultat = []

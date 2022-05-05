@@ -145,31 +145,31 @@ body {
 
 .superswitch input.one:checked ~ .superswitch__indicator {
 	background: rgb(255, 255, 255);
-	transform: translate3d(5.7rem, 0, 0);
+	transform: translate3d(6.5rem, 0, 0);
 	box-shadow:0px 0px 30px rgb(75,50,50),0px 0px 20px rgb(75,50,50),0px 0px 12px rgb(75,50,50),0px 0px 7px rgb(75,50,50),0px 0px 2px rgb(75,50,50), inset 0px 0px 5px rgb(75,50,50);
 }
 
 .superswitch input.two:checked ~ .superswitch__indicator {
 	background: rgb(255, 255, 255);
-	transform: translate3d(9.7rem, 0, 0);
+	transform: translate3d(10.2rem, 0, 0);
 	box-shadow:0px 0px 30px rgb(56,50,86),0px 0px 20px rgb(56,50,86),0px 0px 12px rgb(56,50,86),0px 0px 7px rgb(56,50,86),0px 0px 2px rgb(56,50,86), inset 0px 0px 5px rgb(56,50,86);
 }
 
 .superswitch input.three:checked ~ .superswitch__indicator {
 	background: rgb(255, 255, 255);
-	transform: translate3d(13.7rem, 0, 0);
+	transform: translate3d(14.7rem, 0, 0);
 	box-shadow:0px 0px 30px rgb(58,33,56),0px 0px 20px rgb(58,33,56),0px 0px 12px rgb(58,33,56),0px 0px 7px rgb(58,33,56),0px 0px 2px rgb(58,33,56), inset 0px 0px 5px rgb(58,33,56);
 }
 
 .superswitch input.four:checked ~ .superswitch__indicator {
 	background: rgb(255, 255, 255);
-	transform: translate3d(17.7rem, 0, 0);
+	transform: translate3d(19.2rem, 0, 0);
 	box-shadow:0px 0px 30px rgb(60,24,40),0px 0px 20px rgb(60,24,40),0px 0px 12px rgb(60,24,40),0px 0px 7px rgb(60,24,40),0px 0px 2px rgb(60,24,40), inset 0px 0px 5px rgb(60,24,40);
 }
 
 .superswitch input.five:checked ~ .superswitch__indicator {
 	background: rgb(255, 255, 255);
-	transform: translate3d(22.7rem, 0, 0);
+	transform: translate3d(23.1rem, 0, 0);
 	box-shadow:0px 0px 30px rgb(159,26,40),0px 0px 20px rgb(159,26,40),0px 0px 12px rgb(159,26,40),0px 0px 7px rgb(159,26,40),0px 0px 2px rgb(159,26,40), inset 0px 0px 5px rgb(159,26,40);
 }
 
@@ -249,25 +249,25 @@ body {
 
 .platformswitch input.two:checked ~ .platformswitch__indicator {
 	background: rgb(255, 255, 255);
-	transform: translate3d(9.7rem, 0, 0);
+	transform: translate3d(10.2rem, 0, 0);
 	box-shadow:0px 0px 30px rgb(56,50,86),0px 0px 20px rgb(56,50,86),0px 0px 12px rgb(56,50,86),0px 0px 7px rgb(56,50,86),0px 0px 2px rgb(56,50,86), inset 0px 0px 5px rgb(56,50,86);
 }
 
 .platformswitch input.three:checked ~ .platformswitch__indicator {
 	background: rgb(255, 255, 255);
-	transform: translate3d(13.7rem, 0, 0);
+	transform: translate3d(14.7rem, 0, 0);
 	box-shadow:0px 0px 30px rgb(58,33,56),0px 0px 20px rgb(58,33,56),0px 0px 12px rgb(58,33,56),0px 0px 7px rgb(58,33,56),0px 0px 2px rgb(58,33,56), inset 0px 0px 5px rgb(58,33,56);
 }
 
 .platformswitch input.four:checked ~ .platformswitch__indicator {
 	background: rgb(255, 255, 255);
-	transform: translate3d(17.7rem, 0, 0);
+	transform: translate3d(18.9rem, 0, 0);
 	box-shadow:0px 0px 30px rgb(60,24,40),0px 0px 20px rgb(60,24,40),0px 0px 12px rgb(60,24,40),0px 0px 7px rgb(60,24,40),0px 0px 2px rgb(60,24,40), inset 0px 0px 5px rgb(60,24,40);
 }
 
 .platformswitch input.five:checked ~ .platformswitch__indicator {
 	background: rgb(255, 255, 255);
-	transform: translate3d(22.7rem, 0, 0);
+	transform: translate3d(23.2rem, 0, 0);
 	box-shadow:0px 0px 30px rgb(159,26,40),0px 0px 20px rgb(159,26,40),0px 0px 12px rgb(159,26,40),0px 0px 7px rgb(159,26,40),0px 0px 2px rgb(159,26,40), inset 0px 0px 5px rgb(159,26,40);
 }
 

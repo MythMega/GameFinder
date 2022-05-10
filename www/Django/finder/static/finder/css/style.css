@@ -1,6 +1,8 @@
 h1 {
     color: rgb(255, 255, 255);
     text-shadow:0px 0px 15px #ff644d,0px 0px 25px #ff644d,0px 0px 35px #ff644d,0px 0px 50px #ff644d,0px 0px 75px #ff644d;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h2 {
@@ -47,6 +49,11 @@ body {
     color: wheat;
 }
 
+img {
+    -webkit-filter:  drop-shadow(2px 2px 0 white) drop-shadow(-2px -2px 0 white) drop-shadow(-2px 2px 0 white) drop-shadow(2px -2px 0 white) drop-shadow(0 0 40px #ff644d);
+    filter:  drop-shadow(2px 2px 0 white) drop-shadow(-2px -2px 0 white) drop-shadow(-2px 2px 0 white) drop-shadow(2px -2px 0 white) drop-shadow(0 0 40px #ff644d);
+}
+
 .choiceCard h2 {
     color: white;
     text-align: center;
@@ -55,22 +62,30 @@ body {
 }
 
 .itemCard {
-    background-color: rgba(250, 235, 215, 0.7);
-    border-width: 1px;
-    border-color: black;
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: white;
     margin-top: 25px;
     margin-bottom: 25px;
     padding: 10px;
     padding-bottom: 15px;
+    box-shadow: 0 0 10px #ff644d, 0 0 40px #ff644d, 0 0 80px #000000, 0px 0px 3px #ff644d, inset 0px 0px 10px #ff644d;
     animation-duration: 1s;
     animation-name: unhoveringItemCard;
+    color: white;
+    font-weight: 300;
+    text-shadow: 0px 0px 3px #ff644d, inset 0px 0px 10px #ff644d;
 }
 .itemCard h2 {
     padding-left: 25px;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0px 0px 10px #ff644d;
 }
 .itemCard:hover {
-    background-color: rgba(250, 235, 215, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
     animation-duration: 2s;
     animation-name: hoveringItemCard;
 }
@@ -296,20 +311,20 @@ button {
 /*********************************/
 @keyframes hoveringItemCard {
     from {
-      background-color: rgba(250, 235, 215, 0.7);
+      background-color: rgba(0, 0, 0, 0.7);
     }
   
     to {
-      background-color: rgba(250, 235, 215, 0.9);
+      background-color: rgba(0, 0, 0, 0.9);
     }
 }
 @keyframes unhoveringItemCard {
     from {
-      background-color: rgba(250, 235, 215, 0.9);
+      background-color: rgba(0, 0, 0, 0.9);
     }
   
     to {
-      background-color: rgba(250, 235, 215, 0.7);
+      background-color: rgba(0, 0, 0, 0.7);
     }
 }
 

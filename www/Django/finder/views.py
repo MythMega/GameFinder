@@ -124,6 +124,7 @@ def rollResult(request, game_id):
 
         #check Inde
         # this code don't work at all -> isInde is a method, not an attribute !
+		#make a list, if object.isInde : add it to list
         # if valueInde == "indeYes":
         #     allGameList = allGameList.filter(isInde=True)
         # elif valueInde == "indeNo":

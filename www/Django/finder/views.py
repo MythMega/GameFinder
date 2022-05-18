@@ -174,7 +174,7 @@ def rollResult(request, game_id):
                 monResultat.append(jeu)
             elif jeu.isInde() == False and valueInde == "indeNo":
                 monResultat.append(jeu)
-            elif  valueInde == "indeNC":
+            else:
                 monResultat.append(jeu)
         
 

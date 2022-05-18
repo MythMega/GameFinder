@@ -270,8 +270,9 @@ class Game(models.Model):
         resultat += "..."
         return resultat
 
-    def isInde(self) -> str:
-        if self.editor == None:
+    def isInde(self) -> bool:
+        ed = self.editor.all()
+        if len(ed) == 0:
             return True
         else:
             return False

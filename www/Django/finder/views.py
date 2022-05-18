@@ -122,15 +122,6 @@ def rollResult(request, game_id):
             end = "2999-12-31"
         allGameList = allGameList.filter(release_date__range=[start,end])
 
-        #check Inde
-        # this code don't work at all -> isInde is a method, not an attribute !
-		#make a list, if object.isInde : add it to list
-        # if valueInde == "indeYes":
-        #     allGameList = allGameList.filter(isInde=True)
-        # elif valueInde == "indeNo":
-        #     allGameList = allGameList.filter(isInde=False)
-
-
         newGameList = []
         if platformFilterOn:
             #checkPlatform
@@ -173,6 +164,19 @@ def rollResult(request, game_id):
             if ok:
                 monResultat.append(unJeu)
             
+        
+        gamelist = []
+        gamelist.extend(monResultat)
+        monResultat = []
+        #check Inde
+        for jeu in gamelist:
+            if jeu.isInde() == True and valueInde == "indeYes":
+                monResultat.append(jeu)
+            elif jeu.isInde() == False and valueInde == "indeNo":
+                monResultat.append(jeu)
+            elif  valueInde == "indeNC":
+                monResultat.append(jeu)
+        
 
     else:
         data = {'errorMessage': "An error has occured"}

@@ -25,6 +25,7 @@ RollResult
                             <span>{%if item.editor.all%}Editors(s) :{%else%}No Editors{%endif%}{% for e in item.editor.all %} {{e.name}};{%endfor%}</span><br>
                             <span>{%if item.platform.all%}Platform(s) :{%else%}No Platform ?????{%endif%}{% for p in item.platform.all %} {{p.name}};{%endfor%}</span><br>
                             <span>{%if item.tag.all%}Tags(s) :{%else%}No Tag{%endif%}{% for t in item.tag.all %} {{t.libelle}};{%endfor%}</span><br>
+                            <span>Est indé : {{ item.isInde }}</span>
                         </div>
                     </div>
                     <br><br>

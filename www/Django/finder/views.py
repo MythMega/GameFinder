@@ -169,6 +169,7 @@ def rollResult(request, game_id):
         gamelist.extend(monResultat)
         monResultat = []
         #check Inde
+        print(f"------DEBUG-----------\n-----value search inde : {valueInde}")
         for jeu in gamelist:
             if jeu.isInde() == True and valueInde == "indeYes":
                 monResultat.append(jeu)
@@ -176,6 +177,7 @@ def rollResult(request, game_id):
                 monResultat.append(jeu)
             else:
                 monResultat.append(jeu)
+            print(f"----DEBUG------- {jeu.name} = {jeu.isInde()}")
         
 
     else:

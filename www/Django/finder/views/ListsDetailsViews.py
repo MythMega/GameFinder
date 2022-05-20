@@ -3,7 +3,8 @@ from .dependances import *
 
 def gameList(request):
     template = loader.get_template('finder/gamelist.html')
-    data = {}
+    items = Game.objects.all()
+    data = {'items': items}
     return HttpResponse(template.render(data, request))
 
 def gameDetail(request, game_id):

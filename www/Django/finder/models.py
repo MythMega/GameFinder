@@ -246,6 +246,7 @@ class Game(models.Model):
     isFree = models.BooleanField(null=True, blank=True)
     isHard = models.BooleanField(null=True, blank=True)
     isMature = models.BooleanField(null=True, blank=True)
+    isInde = models.BooleanField(null=True, blank=True)
     url = models.CharField(max_length=255 , null=True, blank=True)
     picture_icon = models.ImageField(upload_to='finder/static/finder/img/game/',null=True, blank=True)
     picture_banner = models.ImageField(upload_to='finder/static/finder/img/game/',null=True, blank=True)
@@ -270,12 +271,12 @@ class Game(models.Model):
         resultat += "..."
         return resultat
 
-    def isInde(self) -> bool:
-        ed = self.editor.all()
-        if len(ed) == 0:
-            return True
-        else:
-            return False
+    # def isInde(self) -> bool:
+    #     ed = self.editor.all()
+    #     if len(ed) == 0:
+    #         return True
+    #     else:
+    #         return False
 
 
     def __str__(self) -> str:

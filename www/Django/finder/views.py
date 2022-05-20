@@ -70,8 +70,6 @@ def rollResult(request, game_id):
             elif valuePlatform == "nintendo":
                 wantedPlatforms = plat_nin
 
-
-        
         #check Price
         if valuePrice == "freeYes":
             allGameList = allGameList.filter(isFree=True)
@@ -101,6 +99,12 @@ def rollResult(request, game_id):
             allGameList = allGameList.filter(isCoop=True)
         elif valueCoop == "coopNo":
             allGameList = allGameList.filter(isCoop=False)
+
+        ##check Coop
+        if valueInde == "indeYes":
+            allGameList = allGameList.filter(isInde=True)
+        elif valueInde == "indeNo":
+            allGameList = allGameList.filter(isInde=False)
 
         #check Release
         start = "1900-01-01"
@@ -146,8 +150,6 @@ def rollResult(request, game_id):
                 allTagUnwanted.append(t)
                 stringTagDebug += f"{t.getStringTagLower()}No--"
 
-
-
         monResultat = []
         maListeDeTagQueJeVeuxOuQueJeVeuxPas = allTagWanted + allTagUnwanted
         for unJeu in allGameList:
@@ -163,28 +165,10 @@ def rollResult(request, game_id):
                         ok= False    
             if ok:
                 monResultat.append(unJeu)
-            
-        
-        gamelist = []
-        gamelist.extend(monResultat)
-        monResultat = []
-        #check Inde
-        print(f"------DEBUG-----------\n-----value search inde : {valueInde}")
-        for jeu in gamelist:
-            if jeu.isInde() == True and valueInde == "indeYes":
-                monResultat.append(jeu)
-            elif jeu.isInde() == False and valueInde == "indeNo":
-                monResultat.append(jeu)
-            else:
-                monResultat.append(jeu)
-            print(f"----DEBUG------- {jeu.name} = {jeu.isInde()}")
-        
-
     else:
         data = {'errorMessage': "An error has occured"}
         template = loader.get_template('finder/error404.html')
         return HttpResponse(template.render(data, request))
-    #data = {'items': monResultat, 'prix':valuePrice, 'coop':valueCoop, 'inde':valueInde, 'date':valueRelease, 'online':valueOnline, 'debugTag':stringTagDebug}
     if len(monResultat) < 1:
         template = loader.get_template('finder/noluck.html')
         return HttpResponse(template.render({}, request))

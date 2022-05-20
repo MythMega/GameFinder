@@ -26,7 +26,7 @@ def reroll(request):
 
 def rollResult(request, game_id):
     if game_id == 0:
-        allGameList = Game.objects.all()
+        allGameList = Game.objects.all().filter(validated=True)
         valuePrice = str(request.POST['free'])
         valueOnline = str(request.POST['online'])
         valueCoop = str(request.POST['coop'])

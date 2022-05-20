@@ -1,16 +1,21 @@
 import django
 from django.db import models
 from django.utils import timezone
+from django.utils.timezone import now
 from datetime import date as d, datetime as dt 
 import random
 from PIL import Image
+from .User import User
 
 
 class Editor(models.Model):
     name = models.CharField(max_length=64)
     release_date = models.DateField(null=True, blank=True)
     still_active = models.BooleanField(default=True)
-    picture = models.ImageField(upload_to='finder/static/finder/img/platform/',null=True, blank=True)    
+    picture = models.ImageField(upload_to='finder/static/finder/img/platform/',null=True, blank=True) 
+    validated = models.BooleanField(default=False, null=True)
+    submitter = models.ManyToManyField(User, blank=True, null=True)
+    submit_date = models.DateField(null=True, blank=True, default=now)  
 
     def __str__(self) -> str:
         return self.name

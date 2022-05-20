@@ -9,6 +9,10 @@ from .Editor import *
 from .Platform import *
 from .Tag import *
 from .Licence import *
+from django.utils.timezone import now
+from .User import User
+
+
 
 class Game(models.Model):
     name = models.CharField(max_length=64)
@@ -30,6 +34,9 @@ class Game(models.Model):
     platform = models.ManyToManyField(Platform, blank=True, null=True)
     tag = models.ManyToManyField(Tag, blank=True, null=True)
     licence = models.ManyToManyField(Licence, blank=True, null=True)
+    validated = models.BooleanField(default=False, null=True)
+    submitter = models.ManyToManyField(User, blank=True, null=True)
+    submit_date = models.DateField(null=True, blank=True, default=now)
 
     def getShortDesc(self) -> str:
         stringDesc = str(self.description)

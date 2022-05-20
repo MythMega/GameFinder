@@ -26,4 +26,5 @@ urlpatterns = [
     path('roll/', views.roll, name='roll'),
     path('roll/<int:game_id>/', views.rollResult, name='rollResult'),
     path('reroll/', views.reroll, name='reroll'),
+    path('submissions/', views.pendingSubmissions, name='submissions'),
 ]

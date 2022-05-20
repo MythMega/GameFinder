@@ -3,7 +3,7 @@ from .dependances import *
 
 def gameList(request):
     template = loader.get_template('finder/gamelist.html')
-    items = Game.objects.all()
+    items = Game.objects.all().filter(validated=True)
     data = {'items': items}
     return HttpResponse(template.render(data, request))
 
@@ -18,7 +18,7 @@ def gameDetail(request, game_id):
 
 def editorList(request):
     template = loader.get_template('finder/editorlist.html')
-    items = Editor.objects.all()
+    items = Editor.objects.all().filter(validated=True)
     itemList = {}
     for item in items:
         itemList[item] = item.getPictureLink()
@@ -36,7 +36,7 @@ def editorDetail(request, editor_id):
 
 def licenceList(request):
     template = loader.get_template('finder/licencelist.html')
-    items = Licence.objects.all()
+    items = Licence.objects.all().filter(validated=True)
     itemList = {}
     for item in items:
         itemList[item] = item.getPictureLink()
@@ -54,7 +54,7 @@ def licenceDetail(request, licence_id):
 
 def devList(request):
     template = loader.get_template('finder/devlist.html')
-    items = Developer.objects.all()
+    items = Developer.objects.all().filter(validated=True)
     itemList = {}
     for item in items:
         itemList[item] = item.getPictureLink()
@@ -72,7 +72,7 @@ def devDetail(request, developer_id):
 
 def tagList(request):
     template = loader.get_template('finder/taglist.html')
-    items = Tag.objects.all()
+    items = Tag.objects.all().filter(validated=True)
     itemList = {}
     for item in items:
         itemList[item] = str(item.getPictureLink())
@@ -90,7 +90,7 @@ def tagDetail(request, tag_id):
 
 def platformList(request):
     template = loader.get_template('finder/platformlist.html')
-    items = Platform.objects.all()
+    items = Platform.objects.all().filter(validated=True)
     itemList = {}
     for item in items:
         itemList[item] = str(item.getPictureLink())
@@ -109,6 +109,12 @@ def platformDetail(request, platform_id):
 
 def pendingSubmissions(request):
     template = loader.get_template('finder/pendingSubmission.html')
-    data = {}
+    t = Tag.objects.all().filter(validated=False)
+    g = Game.objects.all().filter(validated=False)
+    d = Developer.objects.all().filter(validated=False)
+    e = Editor.objects.all().filter(validated=False)
+    p = Platform.objects.all().filter(validated=False)
+    l = Licence.objects.all().filter(validated=False)
+    data = {"tags":t, "games":g, "developers":d, "editors":e, "platforms":p, "licenses":l}
     return HttpResponse(template.render(data, request))
 

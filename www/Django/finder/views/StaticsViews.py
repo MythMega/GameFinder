@@ -17,12 +17,12 @@ def research(request):
         data = {}
         return HttpResponse(template.render(data, request))
     else:
-        t = Tag.objects.all()
-        g = Game.objects.all()
-        d = Developer.objects.all()
-        e = Editor.objects.all()
-        p = Platform.objects.all()
-        l = Licence.objects.all()
+        t = Tag.objects.all().filter(validated=True)
+        g = Game.objects.all().filter(validated=True)
+        d = Developer.objects.all().filter(validated=True)
+        e = Editor.objects.all().filter(validated=True)
+        p = Platform.objects.all().filter(validated=True)
+        l = Licence.objects.all().filter(validated=True)
         tags = [];games = [];devs = [];editors = [];platforms = [];licences = []
 
         for item in t:

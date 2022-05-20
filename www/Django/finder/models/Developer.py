@@ -1,9 +1,11 @@
 import django
 from django.db import models
 from django.utils import timezone
+from django.utils.timezone import now
 from datetime import date as d, datetime as dt 
 import random
 from PIL import Image
+from .User import User
 
 
 class Developer(models.Model):
@@ -13,6 +15,10 @@ class Developer(models.Model):
     isIndependant = models.BooleanField(default=False)
     picture = models.ImageField(upload_to='finder/static/finder/img/platform/',null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    validated = models.BooleanField(default=False, null=True)
+    submitter = models.ManyToManyField(User, blank=True, null=True)
+    submit_date = models.DateField(null=True, blank=True, default=now)
+
 
     def getShortDesc(self) -> str:
         stringDesc = str(self.description)

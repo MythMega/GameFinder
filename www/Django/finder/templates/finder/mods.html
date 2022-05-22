@@ -1,0 +1,12 @@
+{% extends "finder/template_page.html" %}
+{% load static %}
+{% block titre %}
+Devs
+{% endblock %}
+
+{% block contenu %}
+<center>
+<a href="{% url 'finder:validateall' %}"><button type="" class="neonButton miniNeon" type="button">VALIDATE ALL</button></a>
+</center>
+
+{% endblock %}

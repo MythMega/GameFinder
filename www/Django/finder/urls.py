@@ -27,4 +27,6 @@ urlpatterns = [
     path('roll/<int:game_id>/', views.rollResult, name='rollResult'),
     path('reroll/', views.reroll, name='reroll'),
     path('submissions/', views.pendingSubmissions, name='submissions'),
+    path('mods/validateall/', views.validateAll, name='validateall'),
+    path('mods/', views.modIndex, name='mods'),
 ]

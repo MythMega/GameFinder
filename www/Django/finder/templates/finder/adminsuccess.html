@@ -1,0 +1,17 @@
+{% extends "finder/template_page.html" %}
+{% load static %}
+{% block titre %}
+Devs
+{% endblock %}
+
+{% block contenu %}
+<center>
+{%if change%}
+<h1>Sucess</h1><br>
+<h2>successfuly perform {{ counter }} actions !</h2>
+{%else%}
+<h1>Nothing changed</h1><br>
+<h2>It seems that nothing changed !</h2>
+</center>
+{%endif%}
+{% endblock %}

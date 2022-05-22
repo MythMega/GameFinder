@@ -87,3 +87,7 @@ class Game(models.Model):
         else:
             base += "paid "
         return f"{base} {self.name} {self.release_date} {self.release_date}"
+
+    
+    def validate(self):
+        self.validated = True

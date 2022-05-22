@@ -58,3 +58,6 @@ class Developer(models.Model):
 
     def listeDejeu(self):
         return self.game_set.all()
+    
+    def validate(self):
+        self.validated = True

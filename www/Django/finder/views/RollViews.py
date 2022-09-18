@@ -132,10 +132,10 @@ def rollResult(request, game_id):
                 stringTagDebug += f"{t.getStringTagLower()}No--"
 
         monResultat = []
-        maListeDeTagQueJeVeuxOuQueJeVeuxPas = allTagWanted + allTagUnwanted
+        tag_a_traiter = allTagWanted + allTagUnwanted
         for unJeu in allGameList:
             ok = True
-            for unTag in maListeDeTagQueJeVeuxOuQueJeVeuxPas:
+            for unTag in tag_a_traiter:
                 try :
                     unJeu.tag.get(libelle=unTag.libelle)
                 except Tag.DoesNotExist:

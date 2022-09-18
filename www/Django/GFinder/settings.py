@@ -28,8 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
 	'192.168.1.2',
 	'localhost',
-	'gamefinder.com',
-	'gfinder.com'
+	'gamefinder.fr',
+	'buildit5.fr'
 ]
 
 
